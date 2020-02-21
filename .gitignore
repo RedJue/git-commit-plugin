@@ -1,0 +1,6 @@
+out
+node_modules
+.vscode-test/
+*.vsix
+package-lock.json
+git-int-commit-plugin-0.0.1.vsix
