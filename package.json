@@ -1,21 +1,21 @@
 {
-    "name": "git-int-commit-plugin",
-    "displayName": "git-int-commit-plugin",
+    "name": "git-commit-plugin",
+    "displayName": "git-commit-plugin",
     "description": "Automatically generate git commit",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "engines": {
         "vscode": "^1.42.0"
     },
     "publisher": "redjue",
     "license": "MIT",
-    "homepage": "https://github.com/RedJue/git-int-commit-plugin/blob/master/README.md",
+    "homepage": "https://github.com/RedJue/git-commit-plugin/blob/master/README.md",
     "bugs": {
-        "url": "https://github.com/RedJue/git-int-commit-plugin/issues"
+        "url": "https://github.com/RedJue/git-commit-plugin/issues"
     },
     "icon": "assets/logo.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/RedJue/git-int-commit-plugin"
+        "url": "https://github.com/RedJue/git-commit-plugin"
     },
     "keywords": [
         "git",
