@@ -32,7 +32,6 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 	//组合信息 Portfolio information
 	function messageCombine(config: GitMessage) {
-		console.log(config, 'config');
 		return `${config.type}(${config.scope})：${config.subject}\n${config.body}\n${config.footer}`;
 	}
 	//清除填写信息 clear message
@@ -89,8 +88,6 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 					message_config[_key] = value || "";
 					_detailType && (_detailType.isEdit = true);
-					vscode.window.showInformationMessage(value || "");
-					console.log(_detailType, '_detailType');
 					recursiveInputMessage(startMessageInput);
 				});
 			}
