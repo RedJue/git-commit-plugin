@@ -13,17 +13,25 @@ export interface GitMessage {
 	body: string;
 	footer: string;
 }
+//Commit message config
+const message_config: GitMessage = {
+	type: "",
+	scope: "",
+	subject: "",
+	body: "",
+	footer: ""
+};
+//清除填写信息 clear message
+function clearMessage() {
+	Object.keys(message_config).forEach(key => message_config[key] = '');
+	CommitDetailType.map(item => {
+		item.isEdit = false;
+		return item;
+	});
+}
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	//Commit message config
-	const message_config: GitMessage = {
-		type: "",
-		scope: "",
-		subject: "",
-		body: "",
-		footer: ""
-	};
 	//获取是否在git扩展内 Gets whether it is in the git extension
 	function getGitExtension() {
 		const vscodeGit = vscode.extensions.getExtension<GitExtension>("vscode.git");
@@ -32,15 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 	//组合信息 Portfolio information
 	function messageCombine(config: GitMessage) {
-		return `${config.type}(${config.scope})：${config.subject}\n${config.body}\n${config.footer}`;
-	}
-	//清除填写信息 clear message
-	function clearMessage() {
-		Object.keys(message_config).forEach(key => message_config[key] = '');
-		CommitDetailType.map(item => {
-			item.isEdit = false;
-			return item;
-		});
+		return `${config.type}(${config.scope}):${config.subject}\n${config.body}\n${config.footer}`;
 	}
 	const gitExtension = getGitExtension();
 	if (!gitExtension?.enabled) {
@@ -100,6 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const label = select && select.label || '';
 			message_config.type = label;
 			if (label !== "") {
+				clearMessage();
 				recursiveInputMessage(startMessageInput);
 			}
 		});
@@ -113,4 +114,6 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() {
+	clearMessage();
+}
