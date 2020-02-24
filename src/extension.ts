@@ -13,22 +13,6 @@ export interface GitMessage {
 	body: string;
 	footer: string;
 }
-//Commit message config
-const message_config: GitMessage = {
-	type: "",
-	scope: "",
-	subject: "",
-	body: "",
-	footer: ""
-};
-//清除填写信息 clear message
-function clearMessage() {
-	Object.keys(message_config).forEach(key => message_config[key] = '');
-	CommitDetailType.map(item => {
-		item.isEdit = false;
-		return item;
-	});
-}
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -37,6 +21,22 @@ export function activate(context: vscode.ExtensionContext) {
 		const vscodeGit = vscode.extensions.getExtension<GitExtension>("vscode.git");
 		const gitExtension = vscodeGit && vscodeGit.exports;
 		return gitExtension;
+	}
+	//Commit message config
+	const message_config: GitMessage = {
+		type: "",
+		scope: "",
+		subject: "",
+		body: "",
+		footer: ""
+	};
+	//清除填写信息 clear message
+	function clearMessage() {
+		Object.keys(message_config).forEach(key => message_config[key] = '');
+		CommitDetailType.map(item => {
+			item.isEdit = false;
+			return item;
+		});
 	}
 	//组合信息 Portfolio information
 	function messageCombine(config: GitMessage) {
@@ -49,7 +49,6 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 	//获取当前的 git仓库实例 Get git repo instance
 	const repo = gitExtension?.getAPI(1).repositories[0];
-
 	// 递归输入信息 Recursive input message
 	const recursiveInputMessage = (startMessageInput?: () => void) => {
 		CommitDetailQuickPickOptions.placeHolder = "Search Commit Describe";
@@ -90,8 +89,8 @@ export function activate(context: vscode.ExtensionContext) {
 					_detailType && (_detailType.isEdit = true);
 					recursiveInputMessage(startMessageInput);
 				});
-			}else{
-				 clearMessage();
+			} else {
+				clearMessage();
 			}
 		});
 	};
@@ -111,10 +110,7 @@ export function activate(context: vscode.ExtensionContext) {
 		startMessageInput();
 	});
 	context.subscriptions.push(disposable);
-
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {
-	clearMessage();
-}
+export function deactivate() {}
