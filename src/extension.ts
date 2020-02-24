@@ -86,10 +86,12 @@ export function activate(context: vscode.ExtensionContext) {
 							return false;
 						}
 					}
-					message_config[_key] = value || "";
+					message_config[_key] = value || message_config[_key];
 					_detailType && (_detailType.isEdit = true);
 					recursiveInputMessage(startMessageInput);
 				});
+			}else{
+				 clearMessage();
 			}
 		});
 	};
@@ -100,7 +102,6 @@ export function activate(context: vscode.ExtensionContext) {
 			const label = select && select.label || '';
 			message_config.type = label;
 			if (label !== "") {
-				clearMessage();
 				recursiveInputMessage(startMessageInput);
 			}
 		});
