@@ -32,72 +32,83 @@ export function activate(context: vscode.ExtensionContext) {
     };
     //清除填写信息 clear message
     function clearMessage() {
-        Object.keys(message_config).forEach(key => (message_config[key] = ''));
-        CommitDetailType.map(item => {
+        Object.keys(message_config).forEach((key) => (message_config[key] = ''));
+        CommitDetailType.map((item) => {
             item.isEdit = false;
             return item;
         });
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return `${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}\n${config.body}\n${config.footer}`;
+        return `${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}\n${
+            config.body
+        }\n${config.footer}`;
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
-        vscode.window.showErrorMessage('Git extensions are not currently enabled, please try again after enabled!');
+        vscode.window.showErrorMessage(
+            'Git extensions are not currently enabled, please try again after enabled!'
+        );
         return false;
     }
     //获取当前的 git仓库实例 Get git repo instance
     const repo = gitExtension?.getAPI(1).repositories[0];
     // 递归输入信息 Recursive input message
     const recursiveInputMessage = (startMessageInput?: () => void) => {
-        CommitDetailQuickPickOptions.placeHolder = 'Search Commit Describe';
-        const _CommitDetailType: Array<CommitDetailType> = JSON.parse(JSON.stringify(CommitDetailType));
+        CommitDetailQuickPickOptions.placeHolder = '搜索提交描述 Search Commit Describe';
+        const _CommitDetailType: Array<CommitDetailType> = JSON.parse(
+            JSON.stringify(CommitDetailType)
+        );
         _CommitDetailType.map((item: any) => {
             if (item.isEdit) {
                 item.description = `${item.description} 👍 >> ${message_config[item.key || '']}`;
             }
             return item;
         });
-        vscode.window.showQuickPick(_CommitDetailType, CommitDetailQuickPickOptions).then(select => {
-            const label = (select && select.label) || '';
-            if (label !== '') {
-                const _key = select?.key || 'body';
-                if (_key === 'complete') {
-                    vscode.commands.executeCommand('workbench.view.scm');
-                    repo.inputBox.value = messageCombine(message_config);
-                    clearMessage();
-                    return false;
-                }
-                if (_key === 'back') {
-                    startMessageInput && startMessageInput();
-                    clearMessage();
-                    return false;
-                }
-                const _detailType = CommitDetailType.find(item => item.key === _key);
-                CommitInputType.prompt = `${_detailType?.description} >> ${_detailType?.detail}`;
-                CommitInputType.value = message_config[_key] ? message_config[_key] : '';
-                vscode.window.showInputBox(CommitInputType).then(value => {
-                    if (_key === 'subject') {
-                        if (value && value?.length > 20) {
-                            vscode.window.showErrorMessage('The commit overview is no more than 20 words');
-                            recursiveInputMessage(startMessageInput);
-                            return false;
-                        }
+        vscode.window
+            .showQuickPick(_CommitDetailType, CommitDetailQuickPickOptions)
+            .then((select) => {
+                const label = (select && select.label) || '';
+                if (label !== '') {
+                    const _key = select?.key || 'body';
+                    if (_key === 'complete') {
+                        vscode.commands.executeCommand('workbench.view.scm');
+                        repo.inputBox.value = messageCombine(message_config);
+                        clearMessage();
+                        return false;
                     }
-                    message_config[_key] = value || message_config[_key];
-                    _detailType && (_detailType.isEdit = true);
-                    recursiveInputMessage(startMessageInput);
-                });
-            } else {
-                clearMessage();
-            }
-        });
+                    if (_key === 'back') {
+                        startMessageInput && startMessageInput();
+                        clearMessage();
+                        return false;
+                    }
+                    const _detailType = CommitDetailType.find((item) => item.key === _key);
+                    CommitInputType.prompt = `${_detailType?.description} >> ${_detailType?.detail}`;
+                    CommitInputType.value = message_config[_key] ? message_config[_key] : '';
+                    vscode.window.showInputBox(CommitInputType).then((value) => {
+                        if (_key === 'subject') {
+                            const input_value_length = value ? value?.length : 0;
+                            if (input_value_length > 20) {
+                                vscode.window.showErrorMessage(
+                                    'The commit overview is no more than 20 words'
+                                );
+                                recursiveInputMessage(startMessageInput);
+                                return false;
+                            }
+                        }
+                        message_config[_key] = value || message_config[_key];
+                        _detailType && (_detailType.isEdit = true);
+                        recursiveInputMessage(startMessageInput);
+                    });
+                } else {
+                    clearMessage();
+                }
+            });
     };
     //开始输入 Start input
     const startMessageInput = () => {
-        CommitDetailQuickPickOptions.placeHolder = 'Search Commit Type';
-        vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then(select => {
+        CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型 Search Commit Type';
+        vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then((select) => {
             const label = (select && select.label) || '';
             message_config.type = label;
             if (label !== '') {
