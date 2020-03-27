@@ -1,10 +1,13 @@
-import { QuickPickItem } from 'vscode';
+import { workspace, QuickPickItem } from 'vscode';
 
 /**
  * @description git commit 提交类型
  */
 export interface CommitType extends QuickPickItem {}
-const CommitType: Array<CommitType> = [
+
+const isShowEmoji = workspace.getConfiguration('showGitCommit').get<boolean>('showEmoji');
+
+let CommitType: Array<CommitType> = [
     {
         label: '✨feat',
         detail: '添加新特性'
@@ -50,4 +53,13 @@ const CommitType: Array<CommitType> = [
         detail: '回滚到上一个版本'
     }
 ];
+
+if (!isShowEmoji) {
+    CommitType = CommitType.map(commitType => {
+        const labelArr = [...commitType.label];
+        labelArr.shift();
+        commitType.label = labelArr.join('');
+        return commitType;
+    });
+}
 export default CommitType;

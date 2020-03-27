@@ -67,6 +67,14 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
 
 ## [https://github.com/RedJue/git-commit-plugin](https://github.com/RedJue/git-commit-plugin)
 
+## configuration
+
+```json
+{
+    "showGitCommit.showEmoji": false
+}
+```
+
 # issues
 
 ## [https://github.com/RedJue/git-commit-plugin/issues](https://github.com/RedJue/git-commit-plugin/issues)
