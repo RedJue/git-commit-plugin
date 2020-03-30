@@ -83,8 +83,7 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
 
 ```json
 "GitCommitPlugin.CustomCommitType": [
-    "customTypeName",
-    ...
+    "customTypeName"
 ]
 ```
 
