@@ -48,6 +48,20 @@
                     "type": "boolean",
                     "default": true,
                     "markdownDescription": "是否展现 `Emoji` 图标"
+                },
+                "GitCommitPlugin.CustomCommitType": {
+                    "type": "array",
+                    "default": null,
+                    "items": {
+                        "type": "string"
+                    },
+                    "markdownDescription": "自定义添加 `Git Commit Type`",
+                    "scope": "resource"
+                },
+                "GitCommitPlugin.MaxSubjectWords": {
+                    "type": "number",
+                    "default": 20,
+                    "markdownDescription": "设置 **Subject** 的有效长度，默认 `20`"
                 }
             }
         },

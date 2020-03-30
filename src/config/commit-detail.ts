@@ -1,4 +1,4 @@
-import { QuickPickItem, QuickPickOptions } from 'vscode';
+import { QuickPickItem, QuickPickOptions, workspace } from 'vscode';
 
 /**
  * @description git commit detail 提交信息的详情
@@ -7,6 +7,8 @@ export interface CommitDetailType extends QuickPickItem {
     key?: string | number;
     isEdit?: boolean;
 }
+//最大的 subject 限制字数 Max subject words
+export const MaxSubjectWords = workspace.getConfiguration('GitCommitPlugin').get<boolean>('MaxSubjectWords') || 20;
 export const CommitDetailType: Array<CommitDetailType> = [
     {
         label: '<Scope>',
@@ -19,7 +21,7 @@ export const CommitDetailType: Array<CommitDetailType> = [
         label: '<Subject>',
         key: 'subject',
         description: '概述',
-        detail: 'commit 概述 不超过20字',
+        detail: `commit 概述 不超过${MaxSubjectWords}字`,
         isEdit: false
     },
     {

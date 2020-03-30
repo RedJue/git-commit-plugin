@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import { GitExtension } from './types/git';
 import CommitType from './config/commit-type';
-import { CommitDetailType, CommitDetailQuickPickOptions } from './config/commit-detail';
+import { CommitDetailType, CommitDetailQuickPickOptions, MaxSubjectWords } from './config/commit-detail';
 import CommitInputType from './config/commit-input';
 export interface GitMessage {
     [index: string]: string;
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
         body: '',
         footer: ''
     };
-    //清除填写信息 clear message
+    //清除填写信息 Clear message
     function clearMessage() {
         Object.keys(message_config).forEach((key) => (message_config[key] = ''));
         CommitDetailType.map((item) => {
@@ -40,20 +40,17 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return `${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}\n${
-            config.body
-        }\n${config.footer}`;
+        return `${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}\n${config.body}\n${config.footer}`;
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
-        vscode.window.showErrorMessage(
-            'Git extensions are not currently enabled, please try again after enabled!'
-        );
+        vscode.window.showErrorMessage('Git extensions are not currently enabled, please try again after enabled!');
         return false;
     }
+
     //获取当前的 git仓库实例 Get git repo instance
     const repo = gitExtension?.getAPI(1).repositories[0];
-    //输入提交详情 input message detail
+    //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
         const _detailType = CommitDetailType.find((item) => item.key === _key);
         CommitInputType.prompt = `${_detailType?.description} >> ${_detailType?.detail}`;
@@ -64,9 +61,9 @@ export function activate(context: vscode.ExtensionContext) {
             _detailType && (_detailType.isEdit = true);
             if (_key === 'subject') {
                 const input_value_length = value ? value?.length : 0;
-                if (input_value_length > 20) {
+                if (input_value_length > MaxSubjectWords) {
                     vscode.window.showErrorMessage(
-                        `The commit overview is no more than 20 words but the current input is ${input_value_length} words`,
+                        `The commit overview is no more than ${MaxSubjectWords} words but the current input is ${input_value_length} words`,
                         ...['ok']
                     );
                     inputMessageDetail(_key);
@@ -79,37 +76,33 @@ export function activate(context: vscode.ExtensionContext) {
     // 递归输入信息 Recursive input message
     const recursiveInputMessage = (startMessageInput?: () => void) => {
         CommitDetailQuickPickOptions.placeHolder = '搜索提交描述(Search Commit Describe)';
-        const _CommitDetailType: Array<CommitDetailType> = JSON.parse(
-            JSON.stringify(CommitDetailType)
-        );
+        const _CommitDetailType: Array<CommitDetailType> = JSON.parse(JSON.stringify(CommitDetailType));
         _CommitDetailType.map((item: any) => {
             if (item.isEdit) {
                 item.description = `${item.description} 👍 >> ${message_config[item.key || '']}`;
             }
             return item;
         });
-        vscode.window
-            .showQuickPick(_CommitDetailType, CommitDetailQuickPickOptions)
-            .then((select) => {
-                const label = (select && select.label) || '';
-                if (label !== '') {
-                    const _key = select?.key || 'body';
-                    if (_key === 'complete') {
-                        vscode.commands.executeCommand('workbench.view.scm');
-                        repo.inputBox.value = messageCombine(message_config);
-                        clearMessage();
-                        return false;
-                    }
-                    if (_key === 'back') {
-                        startMessageInput && startMessageInput();
-                        clearMessage();
-                        return false;
-                    }
-                    inputMessageDetail(_key);
-                } else {
+        vscode.window.showQuickPick(_CommitDetailType, CommitDetailQuickPickOptions).then((select) => {
+            const label = (select && select.label) || '';
+            if (label !== '') {
+                const _key = select?.key || 'body';
+                if (_key === 'complete') {
+                    vscode.commands.executeCommand('workbench.view.scm');
+                    repo.inputBox.value = messageCombine(message_config);
                     clearMessage();
+                    return false;
                 }
-            });
+                if (_key === 'back') {
+                    startMessageInput && startMessageInput();
+                    clearMessage();
+                    return false;
+                }
+                inputMessageDetail(_key);
+            } else {
+                clearMessage();
+            }
+        });
     };
     //开始输入 Start input
     const startMessageInput = () => {
