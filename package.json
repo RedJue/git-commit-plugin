@@ -40,6 +40,17 @@
                 }
             }
         ],
+        "configuration": {
+            "type": "object",
+            "title": "Git Commit Plugin",
+            "properties": {
+                "GitCommitPlugin.ShowEmoji": {
+                    "type": "boolean",
+                    "default": true,
+                    "markdownDescription": "是否展现 `Emoji` 图标"
+                }
+            }
+        },
         "menus": {
             "scm/title": [
                 {
@@ -55,6 +66,7 @@
         "compile": "tsc -p ./",
         "lint": "eslint src --ext ts --fix",
         "watch": "tsc -watch -p ./",
+        "build": "vsce package",
         "pretest": "npm run compile && npm run lint",
         "test": "node ./out/test/runTest.js"
     },

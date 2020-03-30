@@ -5,7 +5,7 @@ import { workspace, QuickPickItem } from 'vscode';
  */
 export interface CommitType extends QuickPickItem {}
 
-const isShowEmoji = workspace.getConfiguration('showGitCommit').get<boolean>('showEmoji');
+const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
 
 let CommitType: Array<CommitType> = [
     {
@@ -53,9 +53,8 @@ let CommitType: Array<CommitType> = [
         detail: '回滚到上一个版本'
     }
 ];
-
 if (!isShowEmoji) {
-    CommitType = CommitType.map(commitType => {
+    CommitType = CommitType.map((commitType) => {
         const labelArr = [...commitType.label];
         labelArr.shift();
         commitType.label = labelArr.join('');
