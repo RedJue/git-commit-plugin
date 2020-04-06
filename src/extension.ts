@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     //获取当前的 git仓库实例 Get git repo instance
-    const repo = gitExtension?.getAPI(1).repositories[0];
+    let repo: any = gitExtension.getAPI(1).repositories[0];
     //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
         const _detailType = CommitDetailType.find((item) => item.key === _key);
@@ -116,7 +116,13 @@ export function activate(context: vscode.ExtensionContext) {
         });
     };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
-    let disposable = vscode.commands.registerCommand('extension.showGitCommit', () => {
+    let disposable = vscode.commands.registerCommand('extension.showGitCommit', (uri?) => {
+        if (uri) {
+            //如果有多个repo 寻找当前的 进行填充 If there are multiple repos looking for the current to populate
+            repo = gitExtension.getAPI(1).repositories.find((repo) => {
+                return repo.rootUri.path === uri._rootUri.path;
+            });
+        }
         startMessageInput();
     });
     context.subscriptions.push(disposable);
