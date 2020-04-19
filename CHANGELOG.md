@@ -4,6 +4,12 @@ All notable changes to the "git-int-commit-plugin" extension will be documented 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.05]
+
+-   🐞Fix: issue [#13](https://github.com/RedJue/git-commit-plugin/issues/13)
+-   🐞Fix: issue [#14](https://github.com/RedJue/git-commit-plugin/issues/14)
+-   🐞Fix: issue [#15](https://github.com/RedJue/git-commit-plugin/issues/15)
+
 ## [0.04]
 
 -   ✨Feat: [Show Emoji](https://github.com/RedJue/git-commit-plugin/commit/426e3afad2c4568f946efda922412913d73e2836#diff-1750a4dcc9a0a9b1773d275e96c46a1e)
