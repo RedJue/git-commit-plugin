@@ -1,5 +1,6 @@
 # Git-commit-plugin For Vscode
 
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/redjue.git-commit-plugin)
 ![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/redjue.git-commit-plugin)
 ![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/redjue.git-commit-plugin)
 ![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/redjue.git-commit-plugin)
