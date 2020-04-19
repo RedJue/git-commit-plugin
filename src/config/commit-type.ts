@@ -30,7 +30,7 @@ let CommitType: Array<CommitType> = [
         detail: '代码重构，没有加新功能或者修复bug'
     },
     {
-        label: '🎈pref',
+        label: '🎈perf',
         detail: '优化相关，比如提升性能、体验'
     },
     {
