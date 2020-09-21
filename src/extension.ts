@@ -42,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
     function messageCombine(config: GitMessage) {
         return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}`, config.body, config.footer]
             .filter((item) => item)
-            .join('\n');
+            .join('\n\n');
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
