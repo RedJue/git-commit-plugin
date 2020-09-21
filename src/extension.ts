@@ -40,11 +40,9 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return [
-            `${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}`,
-            config.body,
-            config.footer
-        ].filter(item => item).join('\n');
+        return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}`, config.body, config.footer]
+            .filter((item) => item)
+            .join('\n');
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
@@ -54,6 +52,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     //获取当前的 git仓库实例 Get git repo instance
     let repo: any = gitExtension.getAPI(1).repositories[0];
+    console.log(repo, 'repo');
+
     //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
         const _detailType = CommitDetailType.find((item) => item.key === _key);
