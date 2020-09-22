@@ -51,9 +51,12 @@
                 },
                 "GitCommitPlugin.CustomCommitType": {
                     "type": "array",
-                    "default": null,
+                    "default": [],
                     "items": {
-                        "type": "string"
+                        "type": [
+                            "object",
+                            "string"
+                        ]
                     },
                     "markdownDescription": "自定义添加 `Git Commit Type`",
                     "scope": "resource"

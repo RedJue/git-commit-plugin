@@ -65,11 +65,20 @@ if (!isShowEmoji) {
 }
 if (Array.isArray(CustomCommitType)) {
     const costom_commit_type: Array<CommitType> = CustomCommitType.map((item, index) => {
+        let label = '',
+            detail = '';
+        if (typeof item === 'string') {
+            label = detail = item;
+        }
+        if (Object.prototype.toString.call(item) === '[object Object]') {
+            Reflect.has(item, 'label') && (label = item.label);
+            Reflect.has(item, 'detail') && (detail = item.detail);
+        }
         return {
-            label: item,
-            detail: item
+            label,
+            detail
         };
     });
-    CommitType = CommitType.concat(costom_commit_type);
+    CommitType = costom_commit_type.concat(CommitType);
 }
 export default CommitType;
