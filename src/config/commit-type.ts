@@ -10,43 +10,43 @@ const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('
 const CustomCommitType = workspace.getConfiguration('GitCommitPlugin').get<boolean>('CustomCommitType');
 let CommitType: Array<CommitType> = [
     {
-        label: '✨feat',
+        label: '✨ feat',
         detail: '添加新特性'
     },
     {
-        label: '🐞fix',
+        label: '🐞 fix',
         detail: '修复bug'
     },
     {
-        label: '📃docs',
+        label: '📃 docs',
         detail: '仅仅修改文档'
     },
     {
-        label: '🌈style',
+        label: '🌈 style',
         detail: '仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑'
     },
     {
-        label: '🦄refactor',
+        label: '🦄 refactor',
         detail: '代码重构，没有加新功能或者修复bug'
     },
     {
-        label: '🎈perf',
+        label: '🎈 perf',
         detail: '优化相关，比如提升性能、体验'
     },
     {
-        label: '🧪test',
+        label: '🧪 test',
         detail: '增加测试用例'
     },
     {
-        label: '🔧build',
+        label: '🔧 build',
         detail: '依赖相关的内容'
     },
     {
-        label: '🐎ci',
+        label: '🐎 ci',
         detail: 'ci配置相关 例如对 k8s，docker的配置文件的修改'
     },
     {
-        label: '🐳chore',
+        label: '🐳 chore',
         detail: '改变构建流程、或者增加依赖库、工具等'
     },
     {
