@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
     //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
         const _detailType = CommitDetailType.find((item) => item.key === _key);
-        CommitInputType.prompt = `${_detailType?.description} >> ${_detailType?.detail}`;
+        CommitInputType.prompt = `${_detailType?.description} 👉 ${_detailType?.detail}`;
         CommitInputType.value = message_config[_key] ? message_config[_key] : '';
         vscode.window.showInputBox(CommitInputType).then((value) => {
             const _value = value || '';
