@@ -59,7 +59,7 @@ if (!isShowEmoji) {
     CommitType = CommitType.map((commitType) => {
         const labelArr = [...commitType.label];
         labelArr.shift();
-        commitType.label = labelArr.join('');
+        commitType.label = labelArr.join('').trim();
         return commitType;
     });
 }
