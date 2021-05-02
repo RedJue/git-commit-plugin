@@ -5,6 +5,8 @@ All notable changes to the "git-int-commit-plugin" extension will be documented 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## [1.0.2]
+-   🐞Fix:[fix type formatting](https://github.com/RedJue/git-commit-plugin/commit/418279d0c6372068c0923b8aeb7c44b546318d89)
 ## [1.0.1]
 -   🐞Fix: issue [#33](https://github.com/RedJue/git-commit-plugin/issues/33)
 -   🐞Fix: issue [#29](https://github.com/RedJue/git-commit-plugin/issues/29)
