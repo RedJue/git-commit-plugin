@@ -5,6 +5,9 @@ All notable changes to the "git-int-commit-plugin" extension will be documented 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## [1.0.4]
+-   🌈Style:[change icons](https://github.com/RedJue/git-commit-plugin/commit/611ecfb6c2cbf14436141056cc87da4530117c66)
+-   🐞Fix:issue [#36](https://github.com/RedJue/git-commit-plugin/issues/36)
 ## [1.0.3]
 -   🐞Fix:[fix icon color fade](https://github.com/RedJue/git-commit-plugin/commit/977713698c21bdb11b1c2154d154b16343a2b570)
 
