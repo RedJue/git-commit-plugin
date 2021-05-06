@@ -2,7 +2,7 @@
     "name": "git-commit-plugin",
     "displayName": "git-commit-plugin",
     "description": "Automatically generate git commit",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "engines": {
         "vscode": "^1.42.0"
     },
