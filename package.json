@@ -2,7 +2,7 @@
     "name": "git-commit-plugin",
     "displayName": "git-commit-plugin",
     "description": "Automatically generate git commit",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "engines": {
         "vscode": "^1.42.0"
     },
@@ -34,10 +34,7 @@
             {
                 "command": "extension.showGitCommit",
                 "title": "show git commit template",
-                "icon": {
-                    "dark": "assets/icon.svg",
-                    "light": "assets/icon_light.svg"
-                }
+                "icon": "$(octoface)"
             }
         ],
         "configuration": {
