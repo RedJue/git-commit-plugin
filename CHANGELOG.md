@@ -4,6 +4,9 @@ All notable changes to the "git-int-commit-plugin" extension will be documented 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.6]
+-   🎈 perf(commitTemplate): 增加配置增加icon标签，可以自定义图标显示的位置
+
 ## [1.0.5]
 -   ✨ feat(commitTemplate): 插件新增提交模板配置
 
