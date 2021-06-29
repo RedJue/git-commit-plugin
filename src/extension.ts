@@ -1,5 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import { workspace } from 'vscode';
 import * as vscode from 'vscode';
 import { GitExtension } from './types/git';
 import CommitType from './config/commit-type';
@@ -14,6 +15,8 @@ export interface GitMessage {
     body: string;
     footer: string;
 }
+//是否展现 Emoji图标 show Emoji or not
+const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -26,7 +29,8 @@ export function activate(context: vscode.ExtensionContext) {
     //Commit message config
     const message_config: GitMessage = {
         templateName: '',
-        templateContent:'',
+        templateContent: '',
+        icon:'',
         type: '',
         scope: '',
         subject: '',
@@ -43,7 +47,16 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return config.templateContent.replace('<type>', config.type).replace('<scope>',config.scope).replace('<subject>',config.subject).replace('<body>',config.body).replace('<footer>',config.footer).replace(/<enter>/g,'\n\n').replace(/<space>/g,' ');
+        let result = config.templateContent;
+        result = isShowEmoji ? result.replace(/<icon>/g, config.icon) : result.replace(/<icon>/g, '');
+        result = config.type ? result.replace(/<type>/g, config.type) : result.replace(/<type>/g, '');
+        result = config.scope ? result.replace(/<scope>/g, config.scope) : result.replace(/<scope>/g, '');
+        result = config.subject ? result.replace(/<subject>/g, config.subject) : result.replace(/<subject>/g, '');
+        result = config.body ? result.replace(/<body>/g, config.body) : result.replace(/<body>/g, '');
+        result = config.footer ? result.replace(/<footer>/g, config.footer) : result.replace(/<footer>/g, '');
+        result = result.replace(/<enter>/g, '\n\n');
+        result = result.replace(/<space>/g, ' ');
+        return result;
         // return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject} -- ${config.templateName}`, config.body, config.footer]
         //     .filter((item) => item)
         //     .join('\n\n');
@@ -117,7 +130,9 @@ export function activate(context: vscode.ExtensionContext) {
         CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型(Search Commit Type)';
         vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then((select) => {
             const label = (select && select.label) || '';
+            const icon = (select && select.icon) || '';
             message_config.type = label;
+            message_config.icon = icon;
             if (label !== '') {
                 recursiveInputMessage(startMessageInput);
             }

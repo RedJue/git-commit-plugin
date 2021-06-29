@@ -22,9 +22,4 @@ if (Array.isArray(configTemplate)) {
         }
     });
 }
-for (const key in CommitTemplate) {
-    if (Object.prototype.hasOwnProperty.call(CommitTemplate, key)) {
-        const element = CommitTemplate[key];
-    }
-}
 export default CommitTemplate;

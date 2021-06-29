@@ -70,11 +70,11 @@
                     "items": [
                         {
                             "templateName": "Angular",
-                            "templateContent": "<type>(<scope>):<space><subject><enter><body><enter><footer>"
+                            "templateContent": "<icon><space><type>(<scope>):<space><subject><enter><body><enter><footer>"
                         },
                         {
-                            "templateName": "odinSam",
-                            "templateContent": "<type>:<space>[<scope>]<space><subject><enter><body><enter><footer>"
+                            "templateName": "git-cz",
+                            "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
                         }
                     ]
                 }
