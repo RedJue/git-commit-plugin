@@ -62,6 +62,21 @@
                     "type": "number",
                     "default": 20,
                     "markdownDescription": "设置 **Subject** 的有效长度，默认 `20`"
+                },
+                "GitCommitPlugin.Templates":{
+                    "type": "array",
+                    "default": [],
+                    "markdownDescription": "commit提交模板，可以参考 Angular 模板设置",
+                    "items": [
+                        {
+                            "templateName": "Angular",
+                            "templateContent": "<type>(<scope>):<space><subject><enter><body><enter><footer>"
+                        },
+                        {
+                            "templateName": "odinSam",
+                            "templateContent": "<type>:<space>[<scope>]<space><subject><enter><body><enter><footer>"
+                        }
+                    ]
                 }
             }
         },

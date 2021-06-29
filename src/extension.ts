@@ -5,6 +5,7 @@ import { GitExtension } from './types/git';
 import CommitType from './config/commit-type';
 import { CommitDetailType, CommitDetailQuickPickOptions, MaxSubjectWords } from './config/commit-detail';
 import CommitInputType from './config/commit-input';
+import CommitTemplate from './config/template-type';
 export interface GitMessage {
     [index: string]: string;
     type: string;
@@ -24,6 +25,8 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //Commit message config
     const message_config: GitMessage = {
+        templateName: '',
+        templateContent:'',
         type: '',
         scope: '',
         subject: '',
@@ -40,9 +43,10 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}`, config.body, config.footer]
-            .filter((item) => item)
-            .join('\n\n');
+        return config.templateContent.replace('<type>', config.type).replace('<scope>',config.scope).replace('<subject>',config.subject).replace('<body>',config.body).replace('<footer>',config.footer).replace(/<enter>/g,'\n\n').replace(/<space>/g,' ');
+        // return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject} -- ${config.templateName}`, config.body, config.footer]
+        //     .filter((item) => item)
+        //     .join('\n\n');
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
@@ -119,6 +123,21 @@ export function activate(context: vscode.ExtensionContext) {
             }
         });
     };
+    //选择commit 提交的模板
+    const SelectTemplate = () => {
+        CommitDetailQuickPickOptions.placeHolder = '选择提交使用的模板';
+        vscode.window
+            .showQuickPick(CommitTemplate, CommitDetailQuickPickOptions).then((select) => {
+                const templateName = (select && select.templateName) || '';
+                const templateContent = (select && select.templateContent) || '';
+                message_config.templateName = templateName;
+                message_config.templateContent = templateContent;
+                if (templateName !== '') {
+                    startMessageInput();
+                    // recursiveInputMessage(startMessageInput);
+                }
+            });
+    };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
     let disposable = vscode.commands.registerCommand('extension.showGitCommit', (uri?) => {
         if (uri) {
@@ -127,7 +146,7 @@ export function activate(context: vscode.ExtensionContext) {
                 return repo.rootUri.path === uri._rootUri.path;
             });
         }
-        startMessageInput();
+        SelectTemplate();
     });
     context.subscriptions.push(disposable);
 }
