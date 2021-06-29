@@ -105,8 +105,8 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
 ```json
 "GitCommitPlugin.Templates": [
     {
-        "templateName": "Angular",
-        "templateContent": "<type>(<scope>):<space><subject><enter><body><enter><footer>"
+    "templateName": "Angular",
+    "templateContent": "<type>(<scope>):<space><subject><enter><body><enter><footer>"
     },
     {
         "templateName": "odinSam",
