@@ -99,6 +99,26 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
 "GitCommitPlugin.MaxSubjectWords": 20
 ```
 
+
+-   `GitCommitPlugin.Template`: customize the git commit template.
+
+```json
+"GitCommitPlugin.Templates": [
+    {
+        "templateName": "Angular",
+        "templateContent": "<icon><space><type>(<scope>):<space><subject><enter><body><enter><footer>"
+    },
+    {
+        "templateName": "git-cz",
+        "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
+    }
+]
+```
+
 ## license
 
 ### MIT
+
+
+
+

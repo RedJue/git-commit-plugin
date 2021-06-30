@@ -1,10 +1,12 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import { workspace } from 'vscode';
 import * as vscode from 'vscode';
 import { GitExtension } from './types/git';
 import CommitType from './config/commit-type';
 import { CommitDetailType, CommitDetailQuickPickOptions, MaxSubjectWords } from './config/commit-detail';
 import CommitInputType from './config/commit-input';
+import CommitTemplate from './config/template-type';
 export interface GitMessage {
     [index: string]: string;
     type: string;
@@ -13,6 +15,8 @@ export interface GitMessage {
     body: string;
     footer: string;
 }
+//是否展现 Emoji图标 show Emoji or not
+const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -24,6 +28,9 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //Commit message config
     const message_config: GitMessage = {
+        templateName: '',
+        templateContent: '',
+        icon:'',
         type: '',
         scope: '',
         subject: '',
@@ -40,9 +47,19 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject}`, config.body, config.footer]
-            .filter((item) => item)
-            .join('\n\n');
+        let result = config.templateContent;
+        result = isShowEmoji ? result.replace(/<icon>/g, config.icon) : result.replace(/<icon>/g, '');
+        result = config.type !=='' ? result.replace(/<type>/g, config.type) : result.replace(/<type>/g, '');
+        result = config.scope !=='' ? result.replace(/<scope>/g, config.scope) : result.replace(/<scope>/g, '');
+        result = config.subject !=='' ? result.replace(/<subject>/g, config.subject) : result.replace(/<subject>/g, '');
+        result = config.body !=='' ? result.replace(/<body>/g, config.body) : result.replace(/<body>/g, '');
+        result = config.footer!=='' ? result.replace(/<footer>/g, config.footer) : result.replace(/<footer>/g, '');
+        result = result.replace(/<enter>/g, '\n\n');
+        result = result.replace(/<space>/g, ' ');
+        return result.trim();
+        // return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject} -- ${config.templateName}`, config.body, config.footer]
+        //     .filter((item) => item)
+        //     .join('\n\n');
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
@@ -113,11 +130,28 @@ export function activate(context: vscode.ExtensionContext) {
         CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型(Search Commit Type)';
         vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then((select) => {
             const label = (select && select.label) || '';
+            const icon = (select && select.icon) || '';
             message_config.type = label;
+            message_config.icon = icon;
             if (label !== '') {
                 recursiveInputMessage(startMessageInput);
             }
         });
+    };
+    //选择commit 提交的模板
+    const SelectTemplate = () => {
+        CommitDetailQuickPickOptions.placeHolder = '选择提交使用的模板';
+        vscode.window
+            .showQuickPick(CommitTemplate, CommitDetailQuickPickOptions).then((select) => {
+                const templateName = (select && select.templateName) || '';
+                const templateContent = (select && select.templateContent) || '';
+                message_config.templateName = templateName;
+                message_config.templateContent = templateContent;
+                if (templateName !== '') {
+                    startMessageInput();
+                    // recursiveInputMessage(startMessageInput);
+                }
+            });
     };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
     let disposable = vscode.commands.registerCommand('extension.showGitCommit', (uri?) => {
@@ -127,7 +161,7 @@ export function activate(context: vscode.ExtensionContext) {
                 return repo.rootUri.path === uri._rootUri.path;
             });
         }
-        startMessageInput();
+        SelectTemplate();
     });
     context.subscriptions.push(disposable);
 }

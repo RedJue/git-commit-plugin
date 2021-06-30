@@ -2,7 +2,7 @@
     "name": "git-commit-plugin",
     "displayName": "git-commit-plugin",
     "description": "Automatically generate git commit",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "engines": {
         "vscode": "^1.42.0"
     },
@@ -62,6 +62,21 @@
                     "type": "number",
                     "default": 20,
                     "markdownDescription": "设置 **Subject** 的有效长度，默认 `20`"
+                },
+                "GitCommitPlugin.Templates": {
+                    "type": "array",
+                    "default": [],
+                    "markdownDescription": "commit提交模板，可以参考 Angular 模板设置",
+                    "items": [
+                        {
+                            "templateName": "Angular",
+                            "templateContent": "<icon><space><type>(<scope>):<space><subject><enter><body><enter><footer>"
+                        },
+                        {
+                            "templateName": "git-cz",
+                            "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
+                        }
+                    ]
                 }
             }
         },
@@ -97,5 +112,7 @@
         "typescript": "^3.7.5",
         "vscode-test": "^1.3.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vsce": "^1.95.0"
+    }
 }
