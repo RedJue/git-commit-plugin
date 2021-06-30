@@ -63,7 +63,7 @@
                     "default": 20,
                     "markdownDescription": "设置 **Subject** 的有效长度，默认 `20`"
                 },
-                "GitCommitPlugin.Templates":{
+                "GitCommitPlugin.Templates": {
                     "type": "array",
                     "default": [],
                     "markdownDescription": "commit提交模板，可以参考 Angular 模板设置",
@@ -112,5 +112,7 @@
         "typescript": "^3.7.5",
         "vscode-test": "^1.3.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vsce": "^1.95.0"
+    }
 }
