@@ -4,11 +4,13 @@ import { workspace, QuickPickItem } from 'vscode';
  * @description git commit 提交类型
  */
 export interface CommitType extends QuickPickItem {
-    icon: string;
+    icon?: string;
 }
-
+//是否展现 Emoji图标 show Emoji or not
+const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
 //新增的自定义commit type add custom Commit Type
 const CustomCommitType = workspace.getConfiguration('GitCommitPlugin').get<boolean>('CustomCommitType');
+
 let CommitType: Array<CommitType> = [
     {
         label: 'feat',
@@ -61,37 +63,52 @@ let CommitType: Array<CommitType> = [
         icon:'🐳'
     },
     {
-        label: '↩revert',
+        label: 'revert',
         detail: '回滚到上一个版本',
-        icon:''
+        icon:'↩'
     }
 ];
 
-// if (!isShowEmoji) {
-//     CommitType = CommitType.map((commitType) => {
-//         const labelArr = [...commitType.label];
-//         labelArr.shift();
-//         commitType.label = labelArr.join('').trim();
-//         return commitType;
-//     });
-// }
 if (Array.isArray(CustomCommitType)) {
-    const costom_commit_type: Array<CommitType> = CustomCommitType.map((item, index) => {
+    CustomCommitType.forEach((item) => {
         let label = '',icon='',detail = '';
         if (typeof item === 'string') {
             label = detail = item;
         }
-        if (Object.prototype.toString.call(item) === '[object Object]') {
-            Reflect.has(item, 'label') && (label = item.label);
-            Reflect.has(item, 'detail') && (detail = item.detail);
-            Reflect.has(item, 'icon') && (icon = item.icon);
-        }
-        return {
+        const resultType = {
             label,
-            detail,
-            icon
+            icon,
+            detail
         };
+        if (Object.prototype.toString.call(item) === '[object Object]') {
+            if(Reflect.has(item, 'label')){resultType.label = item.label;}else{Reflect.deleteProperty(resultType,'label');};
+            if(Reflect.has(item, 'detail')){resultType.detail = item.detail;}else{Reflect.deleteProperty(resultType,'detail');};
+            if(Reflect.has(item, 'icon')){resultType.icon = item.icon;}else{Reflect.deleteProperty(resultType,'icon');};
+        }
+        const target = CommitType.find((type)=>type.label === item.label);
+       
+        if(target !== undefined){
+            Object.assign(target,resultType);
+        }else{
+            CommitType.unshift(resultType);
+        }
     });
-    CommitType = costom_commit_type.concat(CommitType);
 }
+if (!isShowEmoji) {
+    CommitType = CommitType.map((commitType) => {
+        commitType.icon = '';
+        return commitType;
+    });
+}
+
+if(isShowEmoji){
+    CommitType.forEach((item)=>{
+        // If there is an icon display
+        if(typeof item.icon === 'string' && item.icon.length > 0){        
+            item.label = `${item.icon} ${item.label}`;
+        }
+    });
+}
+  
+
 export default CommitType;

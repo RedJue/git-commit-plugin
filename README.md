@@ -87,8 +87,10 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
     "customTypeName"
 ] or [
    {
+       // If there are duplicate labels, rewrite the config，otherwise add As a new configuration addition
        "label": "customTypeName",
-       "detail": "customTypeDetail"
+       "detail": "customTypeDetail",
+       "icon":"customIcon"
    }
 ]
 ```
@@ -110,7 +112,9 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
     },
     {
         "templateName": "git-cz",
-        "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
+        "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
+         // Set as default commit template
+        "default":true
     }
 ]
 ```

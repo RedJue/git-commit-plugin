@@ -9,6 +9,7 @@ export interface CommitDetailType extends QuickPickItem {
 }
 //最大的 subject 限制字数 Max subject words
 export const MaxSubjectWords = workspace.getConfiguration('GitCommitPlugin').get<boolean>('MaxSubjectWords') || 20;
+
 export const CommitDetailType: Array<CommitDetailType> = [
     {
         label: '<Scope>',
@@ -44,11 +45,17 @@ export const CommitDetailType: Array<CommitDetailType> = [
         detail: '完成 commit 的编写'
     },
     {
+        label: 'Select template for commit',
+        key: 'template',
+        detail: '选择提交使用的模板'
+    },
+    {
         label: 'Back',
         key: 'back',
         detail: '返回 commit type 选择页'
     }
 ];
+
 export const CommitDetailQuickPickOptions: QuickPickOptions = {
     matchOnDescription: true,
     matchOnDetail: true,

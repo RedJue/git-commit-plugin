@@ -1,22 +1,24 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import { workspace } from 'vscode';
 import * as vscode from 'vscode';
 import { GitExtension } from './types/git';
 import CommitType from './config/commit-type';
 import { CommitDetailType, CommitDetailQuickPickOptions, MaxSubjectWords } from './config/commit-detail';
 import CommitInputType from './config/commit-input';
 import CommitTemplate from './config/template-type';
+import {Angular} from './config/default-temp';
 export interface GitMessage {
     [index: string]: string;
+    templateName:string;
+    templateContent:string;
+    icon:string;
     type: string;
     scope: string;
     subject: string;
     body: string;
     footer: string;
 }
-//是否展现 Emoji图标 show Emoji or not
-const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -47,8 +49,8 @@ export function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        let result = config.templateContent;
-        result = isShowEmoji ? result.replace(/<icon>/g, config.icon) : result.replace(/<icon>/g, '');
+        let result = config.templateContent || Angular.templateContent;
+        result = config.icon ? result.replace(/<icon>/g, config.icon) : result.replace(/<icon>/g, '');
         result = config.type !=='' ? result.replace(/<type>/g, config.type) : result.replace(/<type>/g, '');
         result = config.scope !=='' ? result.replace(/<scope>/g, config.scope) : result.replace(/<scope>/g, '');
         result = config.subject !=='' ? result.replace(/<subject>/g, config.subject) : result.replace(/<subject>/g, '');
@@ -57,9 +59,6 @@ export function activate(context: vscode.ExtensionContext) {
         result = result.replace(/<enter>/g, '\n\n');
         result = result.replace(/<space>/g, ' ');
         return result.trim();
-        // return [`${config.type}${config.scope ? '(' + config.scope + ')' : ''}: ${config.subject} -- ${config.templateName}`, config.body, config.footer]
-        //     .filter((item) => item)
-        //     .join('\n\n');
     }
     const gitExtension = getGitExtension();
     if (!gitExtension?.enabled) {
@@ -69,7 +68,6 @@ export function activate(context: vscode.ExtensionContext) {
 
     //获取当前的 git仓库实例 Get git repo instance
     let repo: any = gitExtension.getAPI(1).repositories[0];
-    console.log(repo, 'repo');
 
     //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
@@ -94,9 +92,26 @@ export function activate(context: vscode.ExtensionContext) {
             recursiveInputMessage(startMessageInput);
         });
     };
+    //是否存在模板 If has template
+    const existTemplete = () =>{
+        return Array.isArray(CommitTemplate) && CommitTemplate.length > 0;
+    };
+    //完成输入 Complete input message
+    const completeInputMessage = (select?:boolean) =>{
+        vscode.commands.executeCommand('workbench.view.scm');
+        if(existTemplete() && !select){
+            const defaultTemp = CommitTemplate.find((item)=>item.default);
+            if(defaultTemp !== undefined){
+                message_config.templateName = defaultTemp.templateName;
+                message_config.templateContent = defaultTemp.templateContent;
+            }
+        }
+        repo.inputBox.value = messageCombine(message_config);
+    };
     // 递归输入信息 Recursive input message
     const recursiveInputMessage = (startMessageInput?: () => void) => {
         CommitDetailQuickPickOptions.placeHolder = '搜索提交描述(Search Commit Describe)';
+
         const _CommitDetailType: Array<CommitDetailType> = JSON.parse(JSON.stringify(CommitDetailType));
         _CommitDetailType.map((item: any) => {
             if (item.isEdit) {
@@ -109,14 +124,17 @@ export function activate(context: vscode.ExtensionContext) {
             if (label !== '') {
                 const _key = select?.key || 'body';
                 if (_key === 'complete') {
-                    vscode.commands.executeCommand('workbench.view.scm');
-                    repo.inputBox.value = messageCombine(message_config);
+                    completeInputMessage();
                     clearMessage();
                     return false;
                 }
                 if (_key === 'back') {
                     startMessageInput && startMessageInput();
                     clearMessage();
+                    return false;
+                }
+                if(_key === 'template'){
+                    SelectTemplate();
                     return false;
                 }
                 inputMessageDetail(_key);
@@ -127,10 +145,13 @@ export function activate(context: vscode.ExtensionContext) {
     };
     //开始输入 Start input
     const startMessageInput = () => {
-        CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型(Search Commit Type)';
+        CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型(Search Commit Type)'; 
         vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then((select) => {
-            const label = (select && select.label) || '';
+            let label = (select && select.label) || '';
             const icon = (select && select.icon) || '';
+            if(typeof icon === 'string' && icon.length > 0){
+                label = label.split(' ')[1];
+            }
             message_config.type = label;
             message_config.icon = icon;
             if (label !== '') {
@@ -139,7 +160,7 @@ export function activate(context: vscode.ExtensionContext) {
         });
     };
     //选择commit 提交的模板
-    const SelectTemplate = () => {
+    const SelectTemplate = () => {      
         CommitDetailQuickPickOptions.placeHolder = '选择提交使用的模板';
         vscode.window
             .showQuickPick(CommitTemplate, CommitDetailQuickPickOptions).then((select) => {
@@ -148,8 +169,8 @@ export function activate(context: vscode.ExtensionContext) {
                 message_config.templateName = templateName;
                 message_config.templateContent = templateContent;
                 if (templateName !== '') {
-                    startMessageInput();
-                    // recursiveInputMessage(startMessageInput);
+                    completeInputMessage(true);
+                    clearMessage();
                 }
             });
     };
@@ -161,7 +182,7 @@ export function activate(context: vscode.ExtensionContext) {
                 return repo.rootUri.path === uri._rootUri.path;
             });
         }
-        SelectTemplate();
+        startMessageInput();    
     });
     context.subscriptions.push(disposable);
 }
