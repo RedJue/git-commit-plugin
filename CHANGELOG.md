@@ -1,11 +1,10 @@
 # Change Log
 
-All notable changes to the "git-int-commit-plugin" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [1.0.5]
--   ✨ feat(commitTemplate): 插件新增提交模板配置
+-   ✨Feat:[add custom templates](https://github.com/RedJue/git-commit-plugin/commit/5225dfbbe33859e16246b29f81c3e926d559043d)
+ THX @[odinsam](https://github.com/odinsam)
 ## [1.0.4]
 -   🌈Style:[change icons](https://github.com/RedJue/git-commit-plugin/commit/611ecfb6c2cbf14436141056cc87da4530117c66)
 -   🐞Fix:issue [#36](https://github.com/RedJue/git-commit-plugin/issues/36)
