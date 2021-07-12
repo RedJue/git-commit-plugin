@@ -48,7 +48,7 @@ let CommitType: Array<CommitType> = [
         icon:'🧪'
     },
     {
-        label: ' build',
+        label: 'build',
         detail: '依赖相关的内容',
         icon:'🔧'
     },
