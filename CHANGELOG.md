@@ -2,6 +2,8 @@
 
 
 
+## [1.0.6]
+-   🐞Fix:[fix commit type crash](https://github.com/RedJue/git-commit-plugin/commit/1ddb2bc248233a689ff64a4416955b57a70538f8)
 ## [1.0.5]
 -   ✨Feat:[add custom templates](https://github.com/RedJue/git-commit-plugin/commit/5225dfbbe33859e16246b29f81c3e926d559043d)
  THX @[odinsam](https://github.com/odinsam)
