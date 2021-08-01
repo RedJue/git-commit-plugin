@@ -1,4 +1,5 @@
-# Git-commit-plugin For Vscode
+# Git Commit Plugin For VS Code
+> Automatically generate git commit messages
 
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/redjue.git-commit-plugin)
 ![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/redjue.git-commit-plugin)
@@ -9,9 +10,15 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/RedJue/git-commit-plugin)
 ![GitHub](https://img.shields.io/github/license/RedJue/git-commit-plugin?color=green)
 
-### Install above vscode (version >=1.42.0) and The git plugin needs to be installed.
 
-### Follow the [Angular Team Commit Specification](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines),like the following:
+## Requirements
+
+- VS Code `1.42.0` or higher.
+- VS Code's built-in Git plugin 
+
+## Format
+
+This extension follows the [Angular Team Commit Specification](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines), as follows:
 
 ```
 <type>(<scope>): <subject>
@@ -21,18 +28,22 @@
 <footer>
 ```
 
+See info on the fields below.
+
 ### Type
 
 Must be one of the following:
 
--   **feat**: A new feature
--   **fix**: A bug fix
--   **docs**: Documentation only changes
--   **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
--   **refactor**: A code change that neither fixes a bug nor adds a feature
--   **perf**: A code change that improves performance
--   **test**: Adding missing or correcting existing tests
--   **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
+Type | Description
+---  | ---
+**feat** | A new feature
+**fix** | A bug fix
+**docs** | Documentation only changes
+**style**: | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+**refactor** | A code change that neither fixes a bug nor adds a feature
+**perf** | A code change that improves performance
+**test** | Adding missing or correcting existing tests
+**chore** | Changes to the build process or auxiliary tools and libraries such as documentation generation
 
 ### Scope
 
@@ -46,7 +57,7 @@ The subject contains succinct description of the change:
 
 -   use the imperative, present tense: "change" not "changed" nor "changes"
 -   don't capitalize first letter
--   no dot (.) at the end
+-   no dot (`.`) at the end
 
 ### Body
 
@@ -62,67 +73,63 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
 
 ## Quick start
 
--   **Step1** Install the plugin
-
--   **Step2** Use the command shortcut `showGitCommit` to open the command window or Click the icon on the git plugin navigation bar
-
-    ![open](./assets/open.gif)
-
--   **Step3** Enter the commit information, which automatically generates a commit message that conforms to the specification
-
-    ![edit](./assets/edit.gif)
+1. Install the plugin
+1. Use the command shortcut `showGitCommit` to open the command window or Click the icon on the git plugin navigation bar
+    ![open](/assets/open.gif)
+1. Enter the commit information, which automatically generates a commit message that conforms to the specification
+    ![edit](/assets/edit.gif)
 
 ## Settings Options
 
 -   `GitCommitPlugin.ShowEmoji`: whether to show emoji, default `true`.
-
-```json
-"GitCommitPlugin.ShowEmoji": true
-```
-
--   `GitCommitPlugin.CustomCommitType`: customize the commit type, default `null`.
-
-```json
-"GitCommitPlugin.CustomCommitType": [
-    "customTypeName"
-] or [
-   {
-       // If there are duplicate labels, rewrite the config，otherwise add As a new configuration addition
-       "label": "customTypeName",
-       "detail": "customTypeDetail",
-       "icon":"customIcon"
-   }
-]
-```
-
--   `GitCommitPlugin.MaxSubjectWords`: customize the maximum number of words on the subject, default `20`.
-
-```json
-"GitCommitPlugin.MaxSubjectWords": 20
-```
-
-
--   `GitCommitPlugin.Template`: customize the git commit template.
-
-```json
-"GitCommitPlugin.Templates": [
+    ```json
     {
-        "templateName": "Angular",
-        "templateContent": "<icon><space><type>(<scope>):<space><subject><enter><body><enter><footer>"
-    },
-    {
-        "templateName": "git-cz",
-        "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
-         // Set as default commit template
-        "default":true
+      "GitCommitPlugin.ShowEmoji": true
     }
-]
-```
+    ```
+-   `GitCommitPlugin.CustomCommitType`: customize the commit type, default `null`.
+    ```json5
+    { 
+      "GitCommitPlugin.CustomCommitType": [
+        "customTypeName"
+      ]
+    }
+    ```
+    or
+    ```json5
+    [
+       {
+           // If there are duplicate labels, rewrite the config，otherwise add As a new configuration addition
+           "label": "customTypeName",
+           "detail": "customTypeDetail",
+           "icon":"customIcon"
+       }
+    ]
+    ```
+-   `GitCommitPlugin.MaxSubjectWords`: customize the maximum number of words on the subject, default `20`.
+    ```json
+    {
+      "GitCommitPlugin.MaxSubjectWords": 20
+    }
+    ```
+-   `GitCommitPlugin.Template`: customize the git commit template.
+    ```json5
+    {
+      "GitCommitPlugin.Templates": [
+        {
+            "templateName": "Angular",
+            "templateContent": "<icon><space><type>(<scope>):<space><subject><enter><body><enter><footer>"
+        },
+        {
+            "templateName": "git-cz",
+            "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
+             // Set as default commit template
+            "default":true
+        }
+      ]
+    }
+    ```
 
-## license
+## License
 
-### MIT
-
-
-
-
+Released under [MIT](/LICENSE) by [@RedJue](https://github.com/RedJue).
