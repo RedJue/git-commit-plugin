@@ -2,6 +2,12 @@
 
 
 
+## [1.0.7]
+-   ✨Feat:[default type editable](https://github.com/RedJue/git-commit-plugin/commit/a7c43bc080b4ebfe12114e8b34923b03ed7cf8b6)
+-   📃Docs:[improve readability](https://github.com/RedJue/git-commit-plugin/commit/285afbf0e30c77c2d5068f37cdd2f42b86209b7b)
+ THX @[MichaelCurrin](https://github.com/MichaelCurrin)
+ -  🐞Fix:[修复未填写 scope 时输出空括号对问题](https://github.com/RedJue/git-commit-plugin/pull/52/commits/60ee9446aeef8253db95c807bec22197b7fe6b58)
+ THX @[whwnow](https://github.com/whwnow)
 ## [1.0.6]
 -   🐞Fix:[fix commit type crash](https://github.com/RedJue/git-commit-plugin/commit/1ddb2bc248233a689ff64a4416955b57a70538f8)
 ## [1.0.5]

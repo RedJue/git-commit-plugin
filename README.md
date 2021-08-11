@@ -99,7 +99,8 @@ A detailed explanation can be found in this [document](https://docs.google.com/d
     ```json5
     [
        {
-           // If there are duplicate labels, rewrite the config，otherwise add As a new configuration addition
+           // If there are duplicate keys, rewrite the config，otherwise add As a new configuration addition
+           "key": "customTypeKey", 
            "label": "customTypeName",
            "detail": "customTypeDetail",
            "icon":"customIcon"
