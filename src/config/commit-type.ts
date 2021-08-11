@@ -5,6 +5,7 @@ import { workspace, QuickPickItem } from 'vscode';
  */
 export interface CommitType extends QuickPickItem {
     icon?: string;
+    key?:string;
 }
 //是否展现 Emoji图标 show Emoji or not
 const isShowEmoji = workspace.getConfiguration('GitCommitPlugin').get<boolean>('ShowEmoji');
@@ -14,58 +15,69 @@ const CustomCommitType = workspace.getConfiguration('GitCommitPlugin').get<boole
 let CommitType: Array<CommitType> = [
     {
         label: 'feat',
+        key: 'feat',
         detail: '添加新特性',
-        icon:'✨'
+        icon: '✨'
     },
     {
         label: 'fix',
+        key: 'fix',
         detail: '修复bug',
-        icon:'🐞'
+        icon: '🐞'
     },
     {
         label: 'docs',
+        key: 'docs',
         detail: '仅仅修改文档',
-        icon:'📃'
+        icon: '📃'
     },
     {
         label: 'style',
+        key: 'style',
         detail: '仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑',
-        icon:'🌈'
+        icon: '🌈'
     },
     {
         label: 'refactor',
+        key: 'refactor',
         detail: '代码重构，没有加新功能或者修复bug',
-        icon:'🦄'
+        icon: '🦄'
     },
     {
         label: 'perf',
+        key: 'perf',
         detail: '优化相关，比如提升性能、体验',
-        icon:'🎈'
+        icon: '🎈'
     },
     {
         label: 'test',
+        key: 'test',
         detail: '增加测试用例',
-        icon:'🧪'
+        icon: '🧪'
     },
     {
         label: 'build',
+        key: 'build',
         detail: '依赖相关的内容',
-        icon:'🔧'
+        icon: '🔧'
     },
     {
         label: 'ci',
+        key: 'ci',
         detail: 'ci配置相关 例如对 k8s，docker的配置文件的修改',
-        icon:'🐎'
+        icon: '🐎'
     },
     {
         label: 'chore',
+        key: 'chore',
         detail: '改变构建流程、或者增加依赖库、工具等',
-        icon:'🐳'
+        icon: '🐳'
     },
     {
         label: 'revert',
+        key: 'revert',
         detail: '回滚到上一个版本',
-        icon:'↩'
+        icon: '↩'
     }
 ];
 
@@ -85,7 +97,7 @@ if (Array.isArray(CustomCommitType)) {
             if(Reflect.has(item, 'detail')){resultType.detail = item.detail;}else{Reflect.deleteProperty(resultType,'detail');};
             if(Reflect.has(item, 'icon')){resultType.icon = item.icon;}else{Reflect.deleteProperty(resultType,'icon');};
         }
-        const target = CommitType.find((type)=>type.label === item.label);
+        const target = CommitType.find((type)=>type.key === item.key);
        
         if(target !== undefined){
             Object.assign(target,resultType);
