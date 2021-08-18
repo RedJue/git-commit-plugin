@@ -19,7 +19,7 @@ if (Array.isArray(configTemplate)) {
             detail: item.templateContent,
             templateName: item.templateName,
             templateContent:item.templateContent,
-        }
+        };
     });
 }
 export default CommitTemplate;

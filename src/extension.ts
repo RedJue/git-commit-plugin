@@ -129,10 +129,12 @@ export function activate(context: vscode.ExtensionContext) {
     const startMessageInput = () => {
         CommitDetailQuickPickOptions.placeHolder = '搜索 Git 提交类型(Search Commit Type)';
         vscode.window.showQuickPick(CommitType, CommitDetailQuickPickOptions).then((select) => {
+            const title = (select && select.title) || '';
             const label = (select && select.label) || '';
             const icon = (select && select.icon) || '';
-            message_config.type = label;
+            message_config.type = title;
             message_config.icon = icon;
+
             if (label !== '') {
                 recursiveInputMessage(startMessageInput);
             }
@@ -155,12 +157,12 @@ export function activate(context: vscode.ExtensionContext) {
     };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
     let disposable = vscode.commands.registerCommand('extension.showGitCommit', (uri?) => {
-        if (uri) {
-            //如果有多个repo 寻找当前的 进行填充 If there are multiple repos looking for the current to populate
-            repo = gitExtension.getAPI(1).repositories.find((repo) => {
-                return repo.rootUri.path === uri._rootUri.path;
-            });
-        }
+        // if (uri) {
+        //     //如果有多个repo 寻找当前的 进行填充 If there are multiple repos looking for the current to populate
+        //     repo = gitExtension.getAPI(1).repositories.find((repo) => {
+        //         return repo.rootUri.path === uri._rootUri.path;
+        //     });
+        // }
         SelectTemplate();
     });
     context.subscriptions.push(disposable);
