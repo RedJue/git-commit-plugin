@@ -97,7 +97,8 @@ if (Array.isArray(CustomCommitType)) {
             if(Reflect.has(item, 'detail')){resultType.detail = item.detail;}else{Reflect.deleteProperty(resultType,'detail');};
             if(Reflect.has(item, 'icon')){resultType.icon = item.icon;}else{Reflect.deleteProperty(resultType,'icon');};
         }
-        const target = CommitType.find((type)=>type.key === item.key);
+
+        const target = CommitType.find((type)=>typeof item.key === 'string' && item.key.length > 0  && type.key === item.key);
        
         if(target !== undefined){
             Object.assign(target,resultType);
@@ -107,9 +108,8 @@ if (Array.isArray(CustomCommitType)) {
     });
 }
 if (!isShowEmoji) {
-    CommitType = CommitType.map((commitType) => {
+    CommitType.forEach((commitType) => {
         commitType.icon = '';
-        return commitType;
     });
 }
 
