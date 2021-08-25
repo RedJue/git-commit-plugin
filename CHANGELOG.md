@@ -2,6 +2,8 @@
 
 
 
+## [1.0.8]
+-   🐞Fix:[【Bug】无法添加多个自定义提交类型（commit type](https://github.com/RedJue/git-commit-plugin/issues/54)
 ## [1.0.7]
 -   ✨Feat:[default type editable](https://github.com/RedJue/git-commit-plugin/commit/a7c43bc080b4ebfe12114e8b34923b03ed7cf8b6)
 -   📃Docs:[improve readability](https://github.com/RedJue/git-commit-plugin/commit/285afbf0e30c77c2d5068f37cdd2f42b86209b7b)
