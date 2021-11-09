@@ -14,6 +14,12 @@ const CustomCommitType = workspace.getConfiguration('GitCommitPlugin').get<boole
 
 let CommitType: Array<CommitType> = [
     {
+        label: 'init',
+        key: 'init',
+        detail: '项目初始化',
+        icon: '🎉'
+    },
+    {
         label: 'feat',
         key: 'feat',
         detail: '添加新特性',
