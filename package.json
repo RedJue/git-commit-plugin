@@ -33,7 +33,8 @@
         "commands": [
             {
                 "command": "extension.showGitCommit",
-                "title": "show git commit template",
+                "title": "%extension.showGitCommit.title%",
+                "placeholer": "%extension.showGitCommit.placeholder%",
                 "icon": "$(octoface)"
             }
         ],
@@ -44,7 +45,7 @@
                 "GitCommitPlugin.ShowEmoji": {
                     "type": "boolean",
                     "default": true,
-                    "markdownDescription": "是否展现 `Emoji` 图标"
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.ShowEmoji.markdownDescription%"
                 },
                 "GitCommitPlugin.CustomCommitType": {
                     "type": "array",
@@ -55,18 +56,18 @@
                             "string"
                         ]
                     },
-                    "markdownDescription": "自定义添加 `Git Commit Type`",
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription%",
                     "scope": "resource"
                 },
                 "GitCommitPlugin.MaxSubjectWords": {
                     "type": "number",
                     "default": 20,
-                    "markdownDescription": "设置 **Subject** 的有效长度，默认 `20`"
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectWords%"
                 },
                 "GitCommitPlugin.Templates": {
                     "type": "array",
                     "default": [],
-                    "markdownDescription": "commit提交模板，可以参考 Angular 模板设置",
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates%",
                     "items": [
                         {
                             "templateName": "Angular",
@@ -75,6 +76,23 @@
                         {
                             "templateName": "git-cz",
                             "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
+                        }
+                    ]
+                },
+                "GitCommitPlugin.PreferredLanguage": {
+                    "type": "string",
+                    "default": [
+                        "en"
+                    ],
+                    "markdownDescription": "Language for description text",
+                    "items": [
+                        {
+                            "languageName": "en",
+                            "languageContent": "en"
+                        },
+                        {
+                            "languageName": "cn",
+                            "languageContent": "cn"
                         }
                     ]
                 }
@@ -113,6 +131,7 @@
         "vscode-test": "^1.3.0"
     },
     "dependencies": {
-        "vsce": "^1.95.0"
+        "vsce": "^1.95.0",
+        "vscode-nls-i18n": "^0.2.4"
     }
 }

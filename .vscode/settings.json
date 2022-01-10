@@ -8,9 +8,10 @@
     },
     // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
     "typescript.tsc.autoDetect": "off",
-    "cSpell.words": [
-        "commit",
-        "costom",
-        "type"
-    ]
+    "cSpell.words": ["commit", "costom", "type"],
+    "i18n-ally.localesPaths": [
+        "D:/GIT/git-commit-plugin/src/locale",
+        "D:/GIT/git-commit-plugin"
+    ],
+    "i18n-ally.keystyle": "flat"
 }
