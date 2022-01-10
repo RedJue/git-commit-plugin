@@ -144,7 +144,6 @@ export function activate(context: vscode.ExtensionContext) {
     };
     // 递归输入信息 Recursive input message
     const recursiveInputMessage = (startMessageInput?: () => void) => {
-        //CommitDetailQuickPickOptions.placeHolder = '搜索提交描述(Search Commit Describe)';
         CommitDetailQuickPickOptions.placeHolder = localize(
             'extension.showGitCommit.placeholder',
         );
@@ -188,7 +187,6 @@ export function activate(context: vscode.ExtensionContext) {
     };
     //开始输入 Start input
     const startMessageInput = () => {
-        //CommitDetailQuickPickOptions.placeHolder = '搜索提交描述(Search Commit Describe)';
         CommitDetailQuickPickOptions.placeHolder = localize(
             'extension.showGitCommit.placeholder',
         );
@@ -210,7 +208,6 @@ export function activate(context: vscode.ExtensionContext) {
     };
     //选择commit 提交的模板
     const SelectTemplate = () => {
-        //CommitDetailQuickPickOptions.placeHolder = '选择提交使用的模板';
         CommitDetailQuickPickOptions.placeHolder = localize(
             'extension.showGitCommit.selectTemplate.placeholder',
         );
