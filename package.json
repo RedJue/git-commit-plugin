@@ -78,23 +78,6 @@
                             "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>"
                         }
                     ]
-                },
-                "GitCommitPlugin.PreferredLanguage": {
-                    "type": "string",
-                    "default": [
-                        "en"
-                    ],
-                    "markdownDescription": "Language for description text",
-                    "items": [
-                        {
-                            "languageName": "en",
-                            "languageContent": "en"
-                        },
-                        {
-                            "languageName": "cn",
-                            "languageContent": "cn"
-                        }
-                    ]
                 }
             }
         },
