@@ -1,0 +1,39 @@
+{
+    "extension.showGitCommit.title": "show git commit template",
+    "extension.showGitCommit.placeholder": "搜索 Git 提交类型(Search Commit Type)",
+    "extension.showGitCommit.selectTemplate.placeholder": "选择提交使用的模板",
+    "extension.configuration.GitCommitPlugin.ShowEmoji.markdownDescription": "是否展现 `Emoji` 图标",
+    "extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription": "自定义添加 `Git Commit Type`",
+    "extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectWords": "设置 **Subject** 的有效长度，默认 `20`",
+    "extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates": "commit提交模板，可以参考 Angular 模板设置",
+
+    "extension.commitInputType.detail": "请输入提交信息(Input Commit Message)",
+
+    "extension.commitDetailType.scope.description": "修改范围",
+    "extension.commitDetailType.scope.detail": "本次修改包含哪些模块",
+    "extension.commitDetailType.subject.description": "概述",
+    "extension.commitDetailType.subject.detail": "commit 概述 不超过{0}字",
+
+    "extension.commitDetailType.body.description": "详情",
+    "extension.commitDetailType.body.detail": "commit 详情 可换行显示",
+
+    "extension.commitDetailType.footer.description": "备注",
+    "extension.commitDetailType.footer.detail": "通常是修复 bug 的链接",
+
+    "extension.commitDetailType.complete.detail": "完成 commit 的编写",
+    "extension.commitDetailType.template.detail": "选择提交使用的模板",
+    "extension.commitDetailType.back.detail": "返回 commit type 选择页",
+
+    "extension.commitType.init.detail": "项目初始化",
+    "extension.commitType.feat.detail": "添加新特性",
+    "extension.commitType.fix.detail": "修复bug",
+    "extension.commitType.docs.detail": "仅仅修改文档",
+    "extension.commitType.style.detail": "仅仅修改了空格、格式缩进、逗号等等，不改变代码逻辑",
+    "extension.commitType.refactor.detail": "代码重构，没有加新功能或者修复bug",
+    "extension.commitType.perf.detail": "优化相关，比如提升性能、体验",
+    "extension.commitType.test.detail": "增加测试用例",
+    "extension.commitType.build.detail": "依赖相关的内容",
+    "extension.commitType.ci.detail": "ci配置相关 例如对 k8s，docker的配置文件的修改",
+    "extension.commitType.chore.detail": "改变构建流程、或者增加依赖库、工具等",
+    "extension.commitType.revert.detail": "回滚到上一个版本"
+}
