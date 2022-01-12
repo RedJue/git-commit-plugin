@@ -2,6 +2,9 @@
 
 
 
+## [1.0.9]
+-   ✨ Feat:[Added localization](https://github.com/RedJue/git-commit-plugin/pull/60)
+THX @[spotnick](https://github.com/spotnick)
 ## [1.0.8]
 -   🐞Fix:[【Bug】无法添加多个自定义提交类型（commit type](https://github.com/RedJue/git-commit-plugin/issues/54)
 ## [1.0.7]
