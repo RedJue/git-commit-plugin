@@ -145,7 +145,7 @@ export function activate(context: vscode.ExtensionContext) {
     // 递归输入信息 Recursive input message
     const recursiveInputMessage = (startMessageInput?: () => void) => {
         CommitDetailQuickPickOptions.placeHolder = localize(
-            'extension.showGitCommit.placeholder',
+            'extension.showGitCommit.description.placeholder',
         );
 
         const _CommitDetailType: Array<CommitDetailType> = JSON.parse(

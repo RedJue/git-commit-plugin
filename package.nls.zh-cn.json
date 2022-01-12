@@ -1,29 +1,24 @@
 {
     "extension.showGitCommit.title": "show git commit template",
-    "extension.showGitCommit.placeholder": "搜索 Git 提交类型(Search Commit Type)",
+    "extension.showGitCommit.placeholder": "搜索提交类型",
+    "extension.showGitCommit.description.placeholder": "搜索提交描述",
     "extension.showGitCommit.selectTemplate.placeholder": "选择提交使用的模板",
     "extension.configuration.GitCommitPlugin.ShowEmoji.markdownDescription": "是否展现 `Emoji` 图标",
     "extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription": "自定义添加 `Git Commit Type`",
     "extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectWords": "设置 **Subject** 的有效长度，默认 `20`",
-    "extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates": "commit提交模板，可以参考 Angular 模板设置",
-
-    "extension.commitInputType.detail": "请输入提交信息(Input Commit Message)",
-
+    "extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates": "提交模板设置，可以参考 Angular 模板设置",
+    "extension.commitInputType.detail": "请输入提交信息",
     "extension.commitDetailType.scope.description": "修改范围",
     "extension.commitDetailType.scope.detail": "本次修改包含哪些模块",
     "extension.commitDetailType.subject.description": "概述",
-    "extension.commitDetailType.subject.detail": "commit 概述 不超过{0}字",
-
+    "extension.commitDetailType.subject.detail": "提交概述，不超过{0}字",
     "extension.commitDetailType.body.description": "详情",
-    "extension.commitDetailType.body.detail": "commit 详情 可换行显示",
-
+    "extension.commitDetailType.body.detail": "提交详情，可换行显示",
     "extension.commitDetailType.footer.description": "备注",
     "extension.commitDetailType.footer.detail": "通常是修复 bug 的链接",
-
-    "extension.commitDetailType.complete.detail": "完成 commit 的编写",
+    "extension.commitDetailType.complete.detail": "完成提交的编写",
     "extension.commitDetailType.template.detail": "选择提交使用的模板",
-    "extension.commitDetailType.back.detail": "返回 commit type 选择页",
-
+    "extension.commitDetailType.back.detail": "返回提交类型选择页",
     "extension.commitType.init.detail": "项目初始化",
     "extension.commitType.feat.detail": "添加新特性",
     "extension.commitType.fix.detail": "修复bug",
