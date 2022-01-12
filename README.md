@@ -71,13 +71,20 @@ The footer should contain any information about **Breaking Changes** and is also
 
 A detailed explanation can be found in this [document](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
 
-## Quick start
+## Quick Start
 
 1. Install the plugin
 1. Use the command shortcut `showGitCommit` to open the command window or Click the icon on the git plugin navigation bar
     ![open](/assets/open.gif)
 1. Enter the commit information, which automatically generates a commit message that conforms to the specification
     ![edit](/assets/edit.gif)
+
+## Locale Support
+The plugin will automatically switch the language description based on the `vscode` language environment.
+
+**Support Language**
+- en-US as default
+- zh-CN
 
 ## Settings Options
 
