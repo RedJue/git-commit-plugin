@@ -8,6 +8,7 @@ export interface CommitDetailType extends QuickPickItem {
     key?: string | number;
     isEdit?: boolean;
 }
+
 //最大的 subject 限制字数 Max subject words
 export const MaxSubjectWords =
     workspace.getConfiguration('GitCommitPlugin').get<boolean>('MaxSubjectWords') || 20;

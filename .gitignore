@@ -5,3 +5,4 @@ package-lock.json
 .vsix
 .DS_Store
 git-commit-plugin-*.vsix
+.gitcommitplugin.json

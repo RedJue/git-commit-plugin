@@ -24,7 +24,6 @@ if (Array.isArray(configTemplate)) {
             default:item.default || false
         };
     });
-
 }
 const def:Array<CommitTemplateType> =  Object.values(defaultTemp).map((item)=>({
     label: item.templateName,

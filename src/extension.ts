@@ -25,6 +25,7 @@ export interface GitMessage {
 }
 
 import { localize, init } from 'vscode-nls-i18n';
+import { getGitExtension, getLocalPluginConfig } from './util/tool';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -35,12 +36,6 @@ export function activate(context: vscode.ExtensionContext) {
     const CommitDetailType: Array<CommitDetailType> = GetCommitDetailType();
     const CommitInputType: CommitInputType = GetCommitInputType();
 
-    //获取是否在git扩展内 Gets whether it is in the git extension
-    function getGitExtension() {
-        const vscodeGit = vscode.extensions.getExtension<GitExtension>('vscode.git');
-        const gitExtension = vscodeGit && vscodeGit.exports;
-        return gitExtension;
-    }
     //Commit message config
     const message_config: GitMessage = {
         templateName: '',
@@ -211,6 +206,7 @@ export function activate(context: vscode.ExtensionContext) {
         CommitDetailQuickPickOptions.placeHolder = localize(
             'extension.showGitCommit.selectTemplate.placeholder',
         );
+        getLocalPluginConfig();
         vscode.window
             .showQuickPick(CommitTemplate, CommitDetailQuickPickOptions)
             .then(select => {
