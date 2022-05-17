@@ -2,6 +2,9 @@
 
 
 
+## [1.1.0]
+-   ✨ Feat:[Added localization support for ja-jp](https://github.com/RedJue/git-commit-plugin/commit/d85c54eeb233c68afeeddd1493455884a6f4800b)
+THX @[haryoiro](https://github.com/haryoiro)
 ## [1.0.9]
 -   ✨ Feat:[Added localization](https://github.com/RedJue/git-commit-plugin/pull/60)
 THX @[spotnick](https://github.com/spotnick)
