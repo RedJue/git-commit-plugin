@@ -9,8 +9,8 @@ export interface CommitDetailType extends QuickPickItem {
     isEdit?: boolean;
 }
 //最大的 subject 限制字数 Max subject words
-export const MaxSubjectWords =
-    workspace.getConfiguration('GitCommitPlugin').get<boolean>('MaxSubjectWords') || 20;
+export const MaxSubjectCharacters =
+    workspace.getConfiguration('GitCommitPlugin').get<boolean>('MaxSubjectCharacters') || 20;
 
 export function GetCommitDetailType() {
     const CommitDetailType: Array<CommitDetailType> = [
@@ -27,7 +27,7 @@ export function GetCommitDetailType() {
             description: localize('extension.commitDetailType.subject.description'),
             detail: localize(
                 'extension.commitDetailType.subject.detail',
-                MaxSubjectWords.toString(),
+                MaxSubjectCharacters.toString(),
             ),
             isEdit: false,
         },
