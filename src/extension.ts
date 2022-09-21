@@ -6,7 +6,7 @@ import GetCommitTypes, { CommitType } from './config/commit-type';
 import {
     GetCommitDetailType,
     CommitDetailQuickPickOptions,
-    MaxSubjectWords,
+    MaxSubjectCharacters,
     CommitDetailType,
 } from './config/commit-detail';
 import GetCommitInputType, { CommitInputType } from './config/commit-input';
@@ -114,9 +114,9 @@ export function activate(context: vscode.ExtensionContext) {
             _detailType && (_detailType.isEdit = true);
             if (_key === 'subject') {
                 const input_value_length = value ? value?.length : 0;
-                if (input_value_length > MaxSubjectWords) {
+                if (input_value_length > MaxSubjectCharacters) {
                     vscode.window.showErrorMessage(
-                        `The commit overview is no more than ${MaxSubjectWords} words but the current input is ${input_value_length} words`,
+                        `The commit overview is no more than ${MaxSubjectCharacters} characters but the current input is ${input_value_length} characters`,
                         ...['ok'],
                     );
                     inputMessageDetail(_key);
