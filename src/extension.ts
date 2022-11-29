@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { GitExtension } from './types/git';
+import { GitExtension, Repository } from './types/git';
 import GetCommitTypes, { CommitType } from './config/commit-type';
 import {
     GetCommitDetailType,
@@ -37,9 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     //获取是否在git扩展内 Gets whether it is in the git extension
     function getGitExtension() {
-        const vscodeGit = vscode.extensions.getExtension<GitExtension>('vscode.git');
-        const gitExtension = vscodeGit && vscodeGit.exports;
-        return gitExtension;
+        return vscode.extensions.getExtension<GitExtension>('vscode.git')?.exports;
     }
     //Commit message config
     const message_config: GitMessage = {
@@ -100,8 +98,15 @@ export function activate(context: vscode.ExtensionContext) {
         return false;
     }
 
-    //获取当前的 git仓库实例 Get git repo instance
-    let repo: any = gitExtension.getAPI(1).repositories[0];
+    const getSelectedRepo = (): Repository | null => {
+        const repositories = gitExtension.getAPI(1).repositories;
+
+        if (repositories?.length > 0) {
+            return repositories.find(rp => rp.ui.selected) || repositories[0];
+        }
+
+        return null;
+    };
 
     //输入提交详情 Input message detail
     const inputMessageDetail = (_key: string | number) => {
@@ -127,13 +132,20 @@ export function activate(context: vscode.ExtensionContext) {
         });
     };
     //是否存在模板 If has template
-    const existTemplete = () => {
+    const existTemplate = () => {
         return Array.isArray(CommitTemplate) && CommitTemplate.length > 0;
     };
     //完成输入 Complete input message
     const completeInputMessage = (select?: boolean) => {
         vscode.commands.executeCommand('workbench.view.scm');
-        if (existTemplete() && !select) {
+        const repo = getSelectedRepo();
+
+        if (!repo) {
+            vscode.window.showErrorMessage('No repositories found', ...['ok']);
+            return;
+        }
+
+        if (existTemplate() && !select) {
             const defaultTemp = CommitTemplate.find(item => item.default);
             if (defaultTemp !== undefined) {
                 message_config.templateName = defaultTemp.templateName;
@@ -153,9 +165,8 @@ export function activate(context: vscode.ExtensionContext) {
         );
         _CommitDetailType.map((item: any) => {
             if (item.isEdit) {
-                item.description = `${item.description} 👍 >> ${
-                    message_config[item.key || '']
-                }`;
+                item.description = `${item.description} 👍 >> ${message_config[item.key || '']
+                    }`;
             }
             return item;
         });
@@ -225,20 +236,9 @@ export function activate(context: vscode.ExtensionContext) {
             });
     };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
-    let disposable = vscode.commands.registerCommand(
-        'extension.showGitCommit',
-        (uri?) => {
-            if (uri) {
-                //如果有多个repo 寻找当前的 进行填充 If there are multiple repos looking for the current to populate
-                repo = gitExtension.getAPI(1).repositories.find(repo => {
-                    return repo.rootUri.path === uri._rootUri.path;
-                });
-            }
-            startMessageInput();
-        },
-    );
+    const disposable = vscode.commands.registerCommand('extension.showGitCommit', () => startMessageInput());
     context.subscriptions.push(disposable);
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
