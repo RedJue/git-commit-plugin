@@ -231,7 +231,7 @@ export function activate(context: vscode.ExtensionContext) {
             if (uri) {
                 //如果有多个repo 寻找当前的 进行填充 If there are multiple repos looking for the current to populate
                 repo = gitExtension.getAPI(1).repositories.find(repo => {
-                    return repo.rootUri.path === uri._rootUri.path;
+                    return repo.rootUri.path === uri.rootUri.path;
                 });
             }
             startMessageInput();
