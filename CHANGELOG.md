@@ -1,7 +1,13 @@
 # Change Log
 
 
-
+## [1.1.2]
+-   🐞Fix:[can't open with vscode v1.74.0](https://github.com/RedJue/git-commit-plugin/issues/79)
+-   🐞Fix:[更新 vscode 1.74.0（最新版）后无法使用](https://github.com/RedJue/git-commit-plugin/issues/81)
+THX @[simida0852](https://github.com/simida0852)
+THX @[Torlinone](https://github.com/Torlinone)
+-   🐞Fix:[<Subject> : no more than 20 words](https://github.com/RedJue/git-commit-plugin/issues/72)
+THX @[ArthurMynl](https://github.com/ArthurMynl)
 ## [1.1.0]
 -   ✨ Feat:[Added localization support for ja-jp](https://github.com/RedJue/git-commit-plugin/commit/d85c54eeb233c68afeeddd1493455884a6f4800b)
 THX @[haryoiro](https://github.com/haryoiro)
