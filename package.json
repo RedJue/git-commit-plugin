@@ -2,7 +2,7 @@
     "name": "git-commit-plugin",
     "displayName": "git-commit-plugin",
     "description": "Automatically generate git commit",
-    "version": "1.1.0",
+    "version": "1.1.2",
     "engines": {
         "vscode": "^1.42.0"
     },
@@ -59,10 +59,10 @@
                     "markdownDescription": "%extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription%",
                     "scope": "resource"
                 },
-                "GitCommitPlugin.MaxSubjectWords": {
+                "GitCommitPlugin.MaxSubjectCharacters": {
                     "type": "number",
                     "default": 20,
-                    "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectWords%"
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectCharacters%"
                 },
                 "GitCommitPlugin.Templates": {
                     "type": "array",

@@ -5,7 +5,7 @@
     "extension.showGitCommit.selectTemplate.placeholder": "使用するコミットテンプレートを選択",
     "extension.configuration.GitCommitPlugin.ShowEmoji.markdownDescription": "絵文字アイコンを表示するかどうか制御します。",
     "extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription": "独自の`Git Commit Type`を構成します。",
-    "extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectWords": "有効な **Subject** の文字数を制御します。デフォルト値 `20`",
+    "extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectCharacters": "有効な **Subject** の文字数を制御します。デフォルト値 `20`",
     "extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates": "コミットテンプレートを構成します。Angularコミットテンプレートを参照。",
     "extension.commitInputType.detail": "コミットメッセージを入力",
     "extension.commitDetailType.scope.description": "範囲",

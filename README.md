@@ -115,10 +115,10 @@ The plugin will automatically switch the language description based on the `vsco
        }
     ]
     ```
--   `GitCommitPlugin.MaxSubjectWords`: customize the maximum number of words on the subject, default `20`.
+-   `GitCommitPlugin.MaxSubjectCharacters`: customize the maximum number of words on the subject, default `20`.
     ```json
     {
-      "GitCommitPlugin.MaxSubjectWords": 20
+      "GitCommitPlugin.MaxSubjectCharacters": 20
     }
     ```
 -   `GitCommitPlugin.Template`: customize the git commit template.
