@@ -85,6 +85,8 @@ The plugin will automatically switch the language description based on the `vsco
 **Support Language**
 - en-US as default
 - zh-CN
+- zh-HK
+- zh-TW
 - ja-JP
 
 ## Settings Options
