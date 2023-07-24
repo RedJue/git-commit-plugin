@@ -1,40 +1,43 @@
-# Change Log
+# CHANGELOG
 
 
+## [1.2.0]
+-   ✨ Feat: [zh-tw&zh-hk support](https://github.com/RedJue/git-commit-plugin/pull/90)
+THX @[Tiddler-7](https://github.com/Tiddler-7)
 ## [1.1.2]
--   🐞Fix:[can't open with vscode v1.74.0](https://github.com/RedJue/git-commit-plugin/issues/79)
--   🐞Fix:[更新 vscode 1.74.0（最新版）后无法使用](https://github.com/RedJue/git-commit-plugin/issues/81)
+-   🐞Fix: [can't open with vscode v1.74.0](https://github.com/RedJue/git-commit-plugin/issues/79)
+-   🐞Fix: [更新 vscode 1.74.0（最新版）后无法使用](https://github.com/RedJue/git-commit-plugin/issues/81)
 THX @[simida0852](https://github.com/simida0852)
 THX @[Torlinone](https://github.com/Torlinone)
--   🐞Fix:[<Subject> : no more than 20 words](https://github.com/RedJue/git-commit-plugin/issues/72)
+-   🐞Fix: [<Subject> : no more than 20 words](https://github.com/RedJue/git-commit-plugin/issues/72)
 THX @[ArthurMynl](https://github.com/ArthurMynl)
 ## [1.1.0]
--   ✨ Feat:[Added localization support for ja-jp](https://github.com/RedJue/git-commit-plugin/commit/d85c54eeb233c68afeeddd1493455884a6f4800b)
+-   ✨ Feat: [Added localization support for ja-jp](https://github.com/RedJue/git-commit-plugin/commit/d85c54eeb233c68afeeddd1493455884a6f4800b)
 THX @[haryoiro](https://github.com/haryoiro)
 ## [1.0.9]
--   ✨ Feat:[Added localization](https://github.com/RedJue/git-commit-plugin/pull/60)
+-   ✨ Feat: [Added localization](https://github.com/RedJue/git-commit-plugin/pull/60)
 THX @[spotnick](https://github.com/spotnick)
 ## [1.0.8]
--   🐞Fix:[【Bug】无法添加多个自定义提交类型（commit type](https://github.com/RedJue/git-commit-plugin/issues/54)
+-   🐞Fix: [【Bug】无法添加多个自定义提交类型（commit type](https://github.com/RedJue/git-commit-plugin/issues/54)
 ## [1.0.7]
--   ✨Feat:[default type editable](https://github.com/RedJue/git-commit-plugin/commit/a7c43bc080b4ebfe12114e8b34923b03ed7cf8b6)
--   📃Docs:[improve readability](https://github.com/RedJue/git-commit-plugin/commit/285afbf0e30c77c2d5068f37cdd2f42b86209b7b)
+-   ✨Feat: [default type editable](https://github.com/RedJue/git-commit-plugin/commit/a7c43bc080b4ebfe12114e8b34923b03ed7cf8b6)
+-   📃Docs: [improve readability](https://github.com/RedJue/git-commit-plugin/commit/285afbf0e30c77c2d5068f37cdd2f42b86209b7b)
  THX @[MichaelCurrin](https://github.com/MichaelCurrin)
- -  🐞Fix:[修复未填写 scope 时输出空括号对问题](https://github.com/RedJue/git-commit-plugin/pull/52/commits/60ee9446aeef8253db95c807bec22197b7fe6b58)
+ -  🐞Fix: [修复未填写 scope 时输出空括号对问题](https://github.com/RedJue/git-commit-plugin/pull/52/commits/60ee9446aeef8253db95c807bec22197b7fe6b58)
  THX @[whwnow](https://github.com/whwnow)
 ## [1.0.6]
--   🐞Fix:[fix commit type crash](https://github.com/RedJue/git-commit-plugin/commit/1ddb2bc248233a689ff64a4416955b57a70538f8)
+-   🐞Fix: [fix commit type crash](https://github.com/RedJue/git-commit-plugin/commit/1ddb2bc248233a689ff64a4416955b57a70538f8)
 ## [1.0.5]
--   ✨Feat:[add custom templates](https://github.com/RedJue/git-commit-plugin/commit/5225dfbbe33859e16246b29f81c3e926d559043d)
+-   ✨Feat: [add custom templates](https://github.com/RedJue/git-commit-plugin/commit/5225dfbbe33859e16246b29f81c3e926d559043d)
  THX @[odinsam](https://github.com/odinsam)
 ## [1.0.4]
--   🌈Style:[change icons](https://github.com/RedJue/git-commit-plugin/commit/611ecfb6c2cbf14436141056cc87da4530117c66)
--   🐞Fix:issue [#36](https://github.com/RedJue/git-commit-plugin/issues/36)
+-   🌈Style: [change icons](https://github.com/RedJue/git-commit-plugin/commit/611ecfb6c2cbf14436141056cc87da4530117c66)
+-   🐞Fix: issue [#36](https://github.com/RedJue/git-commit-plugin/issues/36)
 ## [1.0.3]
--   🐞Fix:[fix icon color fade](https://github.com/RedJue/git-commit-plugin/commit/977713698c21bdb11b1c2154d154b16343a2b570)
+-   🐞Fix: [fix icon color fade](https://github.com/RedJue/git-commit-plugin/commit/977713698c21bdb11b1c2154d154b16343a2b570)
 
 ## [1.0.2]
--   🐞Fix:[fix type formatting](https://github.com/RedJue/git-commit-plugin/commit/418279d0c6372068c0923b8aeb7c44b546318d89)
+-   🐞Fix: [fix type formatting](https://github.com/RedJue/git-commit-plugin/commit/418279d0c6372068c0923b8aeb7c44b546318d89)
 ## [1.0.1]
 -   🐞Fix: issue [#33](https://github.com/RedJue/git-commit-plugin/issues/33)
 -   🐞Fix: issue [#29](https://github.com/RedJue/git-commit-plugin/issues/29)
