@@ -111,7 +111,7 @@ export async function activate(context: vscode.ExtensionContext) {
             message_config[_key] = _value;
             _detailType && (_detailType.isEdit = true);
             if (_key === 'subject') {
-                const input_value_length = value ? value?.length : 0;
+                const input_value_length = value ? value.length : 0;
                 if (input_value_length > MaxSubjectCharacters) {
                     vscode.window.showErrorMessage(
                         `The commit overview is no more than ${MaxSubjectCharacters} characters but the current input is ${input_value_length} characters`,

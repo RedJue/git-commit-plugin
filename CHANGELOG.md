@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## [1.2.1]
+-   🐞Fix: [after restarting the extension host, the plugin cannot be activated normally](https://github.com/RedJue/git-commit-plugin/issues/93)
+THX @[MaLuns](https://github.com/MaLuns)
 ## [1.2.0]
 -   ✨ Feat: [zh-tw&zh-hk support](https://github.com/RedJue/git-commit-plugin/pull/90)
 THX @[Tiddler-7](https://github.com/Tiddler-7)
