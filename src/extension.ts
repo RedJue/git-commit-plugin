@@ -28,7 +28,7 @@ import { localize, init } from 'vscode-nls-i18n';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
     init(context.extensionPath);
 
     const CommitType: Array<CommitType> = GetCommitTypes();
@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     //获取是否在git扩展内 Gets whether it is in the git extension
     function getGitExtension() {
-        return vscode.extensions.getExtension<GitExtension>('vscode.git')?.exports;
+        return vscode.extensions.getExtension<GitExtension>('vscode.git')?.activate();
     }
     //Commit message config
     const message_config: GitMessage = {
@@ -89,7 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
         return result.trim();
     }
 
-    const gitExtension = getGitExtension();
+    const gitExtension = await getGitExtension();
 
     if (!gitExtension?.enabled) {
         vscode.window.showErrorMessage(
