@@ -129,13 +129,13 @@ export async function activate(context: vscode.ExtensionContext) {
         });
     };
     //是否存在模板 If has template
-    const existTemplete = () => {
+    const existTemplate = () => {
         return Array.isArray(CommitTemplate) && CommitTemplate.length > 0;
     };
     //完成输入 Complete input message
     const completeInputMessage = (select?: boolean) => {
         vscode.commands.executeCommand('workbench.view.scm');
-        if (existTemplete() && !select) {
+        if (existTemplate() && !select) {
             const defaultTemp = CommitTemplate.find(item => item.default);
             if (defaultTemp !== undefined) {
                 message_config.templateName = defaultTemp.templateName;

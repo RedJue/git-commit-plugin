@@ -23,7 +23,7 @@
     "extension.commitType.init.detail": "Project initialization",
     "extension.commitType.feat.detail": "Adding new features",
     "extension.commitType.fix.detail": "Fixing bugs",
-    "extension.commitType.docs.detail": "Modify documenation only",
+    "extension.commitType.docs.detail": "Modify documentation only",
     "extension.commitType.style.detail": "Only the spaces, formatting indentation, commas, etc. were changed, not the code logic",
     "extension.commitType.refactor.detail": "Code refactoring, no new features added or bugs fixed",
     "extension.commitType.perf.detail": "Optimization-related, such as improving performance, experience",
