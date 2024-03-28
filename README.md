@@ -1,4 +1,7 @@
 # Git Commit Plugin For VS Code
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 > Automatically generate git commit messages
 
 ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/redjue.git-commit-plugin)
@@ -144,3 +147,25 @@ The plugin will automatically switch the language description based on the `vsco
 ## License
 
 Released under [MIT](/LICENSE) by [@RedJue](https://github.com/RedJue).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.imalun.com"><img src="https://avatars.githubusercontent.com/u/31614024?v=4?s=100" width="100px;" alt="白云苍狗"/><br /><sub><b>白云苍狗</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=MaLuns" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
