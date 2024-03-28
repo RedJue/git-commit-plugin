@@ -60,6 +60,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "DrBlackBird",
+      "name": "Tom",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10115809?v=4",
+      "profile": "https://github.com/DrBlackBird",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
