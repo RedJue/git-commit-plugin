@@ -87,6 +87,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "MichaelCurrin",
+      "name": "Michael Currin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18750745?v=4",
+      "profile": "https://github.com/MichaelCurrin",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
