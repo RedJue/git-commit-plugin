@@ -96,6 +96,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "odinsam",
+      "name": "odinsam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68220289?v=4",
+      "profile": "https://www.odinsam.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
