@@ -1,6 +1,6 @@
 # Git Commit Plugin For VS Code
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > Automatically generate git commit messages
 
@@ -160,6 +160,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://www.imalun.com"><img src="https://avatars.githubusercontent.com/u/31614024?v=4?s=100" width="100px;" alt="白云苍狗"/><br /><sub><b>白云苍狗</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=MaLuns" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tiddler-7"><img src="https://avatars.githubusercontent.com/u/73354813?v=4?s=100" width="100px;" alt="冷空气"/><br /><sub><b>冷空气</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=Tiddler-7" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://my.hancel.org"><img src="https://avatars.githubusercontent.com/u/1502581?v=4?s=100" width="100px;" alt="Hancel Lin"/><br /><sub><b>Hancel Lin</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=imlinhanchao" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
