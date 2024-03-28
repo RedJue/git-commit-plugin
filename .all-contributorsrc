@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "MaLuns",
+      "name": "白云苍狗",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31614024?v=4",
+      "profile": "https://www.imalun.com",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "git-commit-plugin",
+  "projectOwner": "RedJue"
+}
