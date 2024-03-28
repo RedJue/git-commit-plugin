@@ -24,6 +24,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "imlinhanchao",
+      "name": "Hancel Lin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1502581?v=4",
+      "profile": "http://my.hancel.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
