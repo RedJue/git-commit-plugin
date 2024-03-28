@@ -69,6 +69,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "webwuyou",
+      "name": "风过无痕",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15182683?v=4",
+      "profile": "http://www.webwuyou.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
