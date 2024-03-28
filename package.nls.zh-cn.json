@@ -6,6 +6,7 @@
     "extension.configuration.GitCommitPlugin.ShowEmoji.markdownDescription": "是否展现 `Emoji` 图标",
     "extension.configuration.GitCommitPlugin.CustomCommitType.markdownDescription": "自定义添加 `Git Commit Type`",
     "extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectCharacters": "设置 **Subject** 的有效长度，默认 `20` 字符",
+    "extension.configuration.GitCommitPlugin.GitCommitPlugin.FillSubjectWithCurrent": "设置 **Subject** 是否填充当前 Commit Message，默认 `false`",
     "extension.configuration.GitCommitPlugin.GitCommitPlugin.Templates": "提交模板设置，可以参考 Angular 模板设置",
     "extension.commitInputType.detail": "请输入提交信息",
     "extension.commitDetailType.scope.description": "修改范围",

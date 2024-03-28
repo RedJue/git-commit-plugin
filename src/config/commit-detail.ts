@@ -12,6 +12,8 @@ export interface CommitDetailType extends QuickPickItem {
 export const MaxSubjectCharacters =
     workspace.getConfiguration('GitCommitPlugin').get<number>('MaxSubjectCharacters') || 20;
 
+export const FillSubjectWithCurrent = workspace.getConfiguration('GitCommitPlugin').get<boolean>('FillSubjectWithCurrent') || false;
+
 export function GetCommitDetailType() {
     const CommitDetailType: Array<CommitDetailType> = [
         {

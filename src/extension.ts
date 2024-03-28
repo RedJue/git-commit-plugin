@@ -8,6 +8,7 @@ import {
     CommitDetailQuickPickOptions,
     MaxSubjectCharacters,
     CommitDetailType,
+    FillSubjectWithCurrent,
 } from './config/commit-detail';
 import GetCommitInputType, { CommitInputType } from './config/commit-input';
 import CommitTemplate from './config/template-type';
@@ -105,7 +106,10 @@ export async function activate(context: vscode.ExtensionContext) {
     const inputMessageDetail = (_key: string | number) => {
         const _detailType = CommitDetailType.find(item => item.key === _key);
         CommitInputType.prompt = `${_detailType?.description} 👉 ${_detailType?.detail}`;
-        CommitInputType.value = message_config[_key] ? message_config[_key] : '';
+        CommitInputType.value = message_config[_key] || '';
+        if (_key === 'subject' && FillSubjectWithCurrent) {
+            CommitInputType.value = message_config[_key] || repo.inputBox.value || '';
+        }
         vscode.window.showInputBox(CommitInputType).then(value => {
             const _value = value || '';
             message_config[_key] = _value;
@@ -125,13 +129,13 @@ export async function activate(context: vscode.ExtensionContext) {
         });
     };
     //是否存在模板 If has template
-    const existTemplete = () => {
+    const existTemplate = () => {
         return Array.isArray(CommitTemplate) && CommitTemplate.length > 0;
     };
     //完成输入 Complete input message
     const completeInputMessage = (select?: boolean) => {
         vscode.commands.executeCommand('workbench.view.scm');
-        if (existTemplete() && !select) {
+        if (existTemplate() && !select) {
             const defaultTemp = CommitTemplate.find(item => item.default);
             if (defaultTemp !== undefined) {
                 message_config.templateName = defaultTemp.templateName;
@@ -151,8 +155,7 @@ export async function activate(context: vscode.ExtensionContext) {
         );
         _CommitDetailType.map((item: any) => {
             if (item.isEdit) {
-                item.description = `${item.description} 👍 >> ${
-                    message_config[item.key || '']
+                item.description = `${item.description} 👍 >> ${message_config[item.key || '']
                 }`;
             }
             return item;
@@ -240,4 +243,4 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

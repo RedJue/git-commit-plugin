@@ -64,6 +64,11 @@
                     "default": 20,
                     "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.MaxSubjectCharacters%"
                 },
+                "GitCommitPlugin.FillSubjectWithCurrent": {
+                    "type": "boolean",
+                    "default": false,
+                    "markdownDescription": "%extension.configuration.GitCommitPlugin.GitCommitPlugin.FillSubjectWithCurrent%"
+                },
                 "GitCommitPlugin.Templates": {
                     "type": "array",
                     "default": [],
