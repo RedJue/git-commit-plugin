@@ -15,6 +15,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Tiddler-7",
+      "name": "冷空气",
+      "avatar_url": "https://avatars.githubusercontent.com/u/73354813?v=4",
+      "profile": "https://github.com/Tiddler-7",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
