@@ -1,6 +1,6 @@
 # Git Commit Plugin For VS Code
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > Automatically generate git commit messages
 
@@ -162,6 +162,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tiddler-7"><img src="https://avatars.githubusercontent.com/u/73354813?v=4?s=100" width="100px;" alt="冷空气"/><br /><sub><b>冷空气</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=Tiddler-7" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://my.hancel.org"><img src="https://avatars.githubusercontent.com/u/1502581?v=4?s=100" width="100px;" alt="Hancel Lin"/><br /><sub><b>Hancel Lin</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=imlinhanchao" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Torlinone"><img src="https://avatars.githubusercontent.com/u/26668466?v=4?s=100" width="100px;" alt="Keriy"/><br /><sub><b>Keriy</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=Torlinone" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.linkedin.com/in/arthurmeyniel"><img src="https://avatars.githubusercontent.com/u/61516506?v=4?s=100" width="100px;" alt="Arthur Meyniel"/><br /><sub><b>Arthur Meyniel</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=ArthurMynl" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
