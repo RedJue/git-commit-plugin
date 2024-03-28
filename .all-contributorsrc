@@ -114,6 +114,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "mlzzen",
+      "name": "mlzzen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11664505?v=4",
+      "profile": "http://mlzzen.vercel.app",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
