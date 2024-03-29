@@ -108,7 +108,7 @@ export async function activate(context: vscode.ExtensionContext) {
         CommitInputType.prompt = `${_detailType?.description} 👉 ${_detailType?.detail}`;
         CommitInputType.value = message_config[_key] || '';
         if (_key === 'subject' && FillSubjectWithCurrent) {
-            CommitInputType.value = message_config[_key] || repo.inputBox.value || '';
+            CommitInputType.value = message_config[_key] || '';
         }
         vscode.window.showInputBox(CommitInputType).then(value => {
             const _value = value || '';
@@ -225,6 +225,13 @@ export async function activate(context: vscode.ExtensionContext) {
                 }
             });
     };
+    // 设置 detail 信息
+    const setMessageInput = (_key: keyof GitMessage, message: string) => {
+        const _detailType = CommitDetailType.find(item => item.key === _key);
+        if(!_detailType || message.length <= 0) {return;}
+        message_config[_key] = message;
+        _detailType.isEdit = true;
+    };
     //点击图标触发快捷选项 Click the icon to trigger shortcut options
     let disposable = vscode.commands.registerCommand(
         'extension.showGitCommit',
@@ -235,6 +242,10 @@ export async function activate(context: vscode.ExtensionContext) {
                     const uriRoot = uri._rootUri ? uri._rootUri : uri.rootUri;
                     return repo.rootUri.path === uriRoot?.path;
                 });
+            }
+            if (FillSubjectWithCurrent) {
+                const message = repo.inputBox.value;
+                setMessageInput('subject', message);
             }
             startMessageInput();
         },
