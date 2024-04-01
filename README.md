@@ -126,6 +126,12 @@ The plugin will automatically switch the language description based on the `vsco
       "GitCommitPlugin.MaxSubjectCharacters": 20
     }
     ```
+-  `GitCommitPlugin.FillSubjectWithCurrent`: whether to fill the subject with the current commit message, default `false`.
+    ```json
+    {
+      "GitCommitPlugin.FillSubjectWithCurrent": false
+    }
+    ```
 -   `GitCommitPlugin.Template`: customize the git commit template.
     ```json5
     {
