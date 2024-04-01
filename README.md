@@ -1,6 +1,6 @@
 # Git Commit Plugin For VS Code
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > Automatically generate git commit messages
 
@@ -180,6 +180,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tys1128"><img src="https://avatars.githubusercontent.com/u/24326849?v=4?s=100" width="100px;" alt="tys1128"/><br /><sub><b>tys1128</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=tys1128" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://mlzzen.vercel.app"><img src="https://avatars.githubusercontent.com/u/11664505?v=4?s=100" width="100px;" alt="mlzzen"/><br /><sub><b>mlzzen</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=mlzzen" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/yeze322"><img src="https://avatars.githubusercontent.com/u/8528761?v=4?s=100" width="100px;" alt="zeye"/><br /><sub><b>zeye</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=yeze322" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://blog.moeyua.com"><img src="https://avatars.githubusercontent.com/u/45156493?v=4?s=100" width="100px;" alt="Moeyua"/><br /><sub><b>Moeyua</b></sub></a><br /><a href="https://github.com/RedJue/git-commit-plugin/commits?author=moeyua" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
