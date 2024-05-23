@@ -132,6 +132,15 @@ export async function activate(context: vscode.ExtensionContext) {
     const existTemplate = () => {
         return Array.isArray(CommitTemplate) && CommitTemplate.length > 0;
     };
+    //拷贝提交信息 Copy commit message
+    const copyMessage = () => {
+        vscode.env.clipboard.writeText(messageCombine(message_config));
+        vscode.window.showInformationMessage(
+            localize('extension.commitDetailType.message.copy.tip'),
+            ...['ok'],
+        );
+        clearMessage();
+    };
     //完成输入 Complete input message
     const completeInputMessage = (select?: boolean) => {
         vscode.commands.executeCommand('workbench.view.scm');
@@ -178,6 +187,11 @@ export async function activate(context: vscode.ExtensionContext) {
                     }
                     if (_key === 'template') {
                         SelectTemplate();
+                        return false;
+                    }
+
+                    if (_key === 'copy') {
+                        copyMessage();
                         return false;
                     }
                     inputMessageDetail(_key);

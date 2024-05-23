@@ -19,6 +19,8 @@
     "extension.commitDetailType.footer.detail": "通常是修复 bug 的链接",
     "extension.commitDetailType.complete.detail": "完成提交的编写",
     "extension.commitDetailType.template.detail": "选择提交使用的模板",
+    "extension.commitDetailType.message.copy": "拷贝提交信息",
+    "extension.commitDetailType.message.copy.tip": "提交信息已复制到剪贴板！",
     "extension.commitDetailType.back.detail": "返回提交类型选择页",
     "extension.commitType.init.detail": "项目初始化",
     "extension.commitType.feat.detail": "添加新特性",

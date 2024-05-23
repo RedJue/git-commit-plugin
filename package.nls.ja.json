@@ -19,6 +19,8 @@
     "extension.commitDetailType.footer.detail": "コミットログの内容に関連したIssueのリンクなどを記述",
     "extension.commitDetailType.complete.detail": "コミットの編集を反映して終了",
     "extension.commitDetailType.template.detail": "どのコミットテンプレートを使用するか選択",
+    "extension.commitDetailType.message.copy": "投稿情報をコピーする",
+    "extension.commitDetailType.message.copy.tip": "コミットメッセージがクリップボードにコピーされました！",
     "extension.commitDetailType.back.detail": "コミットタイプ選択ページへ戻る",
     "extension.commitType.init.detail": "プロジェクト初期化",
     "extension.commitType.feat.detail": "新規機能追加",

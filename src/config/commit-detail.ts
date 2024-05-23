@@ -58,6 +58,11 @@ export function GetCommitDetailType() {
             detail: localize('extension.commitDetailType.template.detail'),
         },
         {
+            label: 'Copy',
+            key: 'copy',
+            detail: localize('extension.commitDetailType.message.copy'),
+        },
+        {
             label: 'Back',
             key: 'back',
             detail: localize('extension.commitDetailType.back.detail'),

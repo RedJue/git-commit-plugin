@@ -19,6 +19,8 @@
     "extension.commitDetailType.footer.detail": "Usually a link to fix a bug",
     "extension.commitDetailType.complete.detail": "Finish writing the commit",
     "extension.commitDetailType.template.detail": "Select the template to submit for use",
+    "extension.commitDetailType.message.copy": "Copy the commit message",
+    "extension.commitDetailType.message.copy.tip": "The commit message has been copied to the clipboard!",
     "extension.commitDetailType.back.detail": "Return to the commit type selection page",
     "extension.commitType.init.detail": "Project initialization",
     "extension.commitType.feat.detail": "Adding new features",
