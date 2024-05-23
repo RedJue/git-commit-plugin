@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## [1.4.0]
+-   ✨ Feat: [added option to copy commit message](https://github.com/RedJue/git-commit-plugin/issues/116)
 ## [1.3.0]
 -   ✨ Feat: [允许将当前 commit message 作为 subject 默认内容](https://github.com/RedJue/git-commit-plugin/pull/100)
 THX @[moeyua](https://github.com/moeyua)
