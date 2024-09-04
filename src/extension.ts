@@ -87,6 +87,8 @@ export async function activate(context: vscode.ExtensionContext) {
                 : result.replace(/<footer>/g, '');
         result = result.replace(/<enter>/g, '\n\n');
         result = result.replace(/<space>/g, ' ');
+        result = result.replace(/<br>/g, '\n');
+        
         return result.trim();
     }
 

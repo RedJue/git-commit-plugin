@@ -14,7 +14,7 @@
     "extension.commitDetailType.subject.description": "概要",
     "extension.commitDetailType.subject.detail": "コミットの概要を記述 (最大文字数: {0})",
     "extension.commitDetailType.body.description": "詳細",
-    "extension.commitDetailType.body.detail": "コミットの詳細を記述",
+    "extension.commitDetailType.body.detail": "提出の詳細、<br> を追加すると改行表示ができます",
     "extension.commitDetailType.footer.description": "備考",
     "extension.commitDetailType.footer.detail": "コミットログの内容に関連したIssueのリンクなどを記述",
     "extension.commitDetailType.complete.detail": "コミットの編集を反映して終了",

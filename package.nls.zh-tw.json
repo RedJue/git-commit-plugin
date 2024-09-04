@@ -14,7 +14,7 @@
     "extension.commitDetailType.subject.description": "概述",
     "extension.commitDetailType.subject.detail": "提交概述，不超過{0}字符",
     "extension.commitDetailType.body.description": "詳情",
-    "extension.commitDetailType.body.detail": "提交詳情，可換行顯示",
+    "extension.commitDetailType.body.detail": "提交詳情，加入 <br> 可換行顯示",
     "extension.commitDetailType.footer.description": "备注備註",
     "extension.commitDetailType.footer.detail": "通常是修復 bug 的鏈接",
     "extension.commitDetailType.complete.detail": "完成提交的編寫",

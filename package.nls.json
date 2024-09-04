@@ -14,7 +14,7 @@
     "extension.commitDetailType.subject.description": "Overview",
     "extension.commitDetailType.subject.detail": "Commit Overview No more than {0} characters",
     "extension.commitDetailType.body.description": "Details",
-    "extension.commitDetailType.body.detail": "Commit details can be displayed in new lines",
+    "extension.commitDetailType.body.detail": "Submission details: adding <br> allows line breaks to be displayed.",
     "extension.commitDetailType.footer.description": "Remarks",
     "extension.commitDetailType.footer.detail": "Usually a link to fix a bug",
     "extension.commitDetailType.complete.detail": "Finish writing the commit",
