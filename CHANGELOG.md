@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## [1.5.0]
+-   ✨ Feat: [adding <br> allows line breaks to be displayed](https://github.com/RedJue/git-commit-plugin/commit/afd6e136f145f0366c15a2cc5faa9befd6a379e7)
 ## [1.4.0]
 -   ✨ Feat: [added option to copy commit message](https://github.com/RedJue/git-commit-plugin/issues/116)
 ## [1.3.0]
