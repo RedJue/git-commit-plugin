@@ -61,7 +61,11 @@ export async function activate(context: vscode.ExtensionContext) {
     }
     //组合信息 Portfolio information
     function messageCombine(config: GitMessage) {
-        let result = config.templateContent || Angular.templateContent;
+        const defaultTemplate = CommitTemplate.find(item => item.default);
+        let result =
+            config.templateContent ||
+            defaultTemplate?.templateContent ||
+            Angular.templateContent;
         result = config.icon
             ? result.replace(/<icon>/g, config.icon)
             : result.replace(/<icon>/g, '');
